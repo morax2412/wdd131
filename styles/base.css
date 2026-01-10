@@ -1,5 +1,6 @@
 body {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
   margin: 0;
   background: #f4f6f8;
 }
@@ -52,6 +53,7 @@ main {
 }
 
 main h1 {
+  font-weight: 100;
   grid-column: 1 / -1;
   text-align: center;
   margin: 0 0 1rem 0;
