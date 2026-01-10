@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  grid-area: header;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-content {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+}
+
+nav {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;     /* Flex requirement */
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ccc;
+}
+
+main {
+  grid-area: main;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+aside {
+  grid-area: aside;
+  margin: 1rem 1rem 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+footer {
+  grid-area: footer;
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
