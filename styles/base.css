@@ -1,0 +1,124 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f8;
+}
+
+header {
+  background: #1f4e79;
+  color: white;
+  padding: 1rem 0;
+}
+
+#course-title {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #2f2f2f;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+}
+
+nav a:hover {
+  background: #1b1b1b;
+}
+
+main {
+  max-width: 950px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+main h1 {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.card {
+  background: white;
+  border: 1px solid #cfd6dd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card h2 {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  background: #1f4e79;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.card p,
+.card ul {
+  padding: 1rem;
+  margin: 0;
+}
+
+.card ul {
+  padding-left: 2rem;
+}
+
+.card img {
+  max-width: 160px;
+  height: auto;
+  display: block;
+  margin: 0 1rem 1rem 1rem;
+  border: 1px solid #cfd6dd;
+}
+
+/* Optional: Make About Me layout more like the example */
+.card:first-of-type {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: start;
+}
+
+.card:first-of-type h2 {
+  grid-column: 1 / -1;
+}
+
+.card:first-of-type p {
+  grid-column: 1 / 2;
+}
+
+.card:first-of-type img {
+  grid-column: 2 / 3;
+  margin-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  background: #1f4e79;
+  color: white;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.card ul {
+  margin: 0;
+  padding: 1rem 1.5rem;
+}
+
+
