@@ -1,13 +1,21 @@
 @media (min-width: 700px) {
   #menu {
     display: none;
-  }
+}
 
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
+  header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
 
   .gallery {
     grid-template-columns: repeat(3, 1fr);
