@@ -1,23 +1,32 @@
 @media (min-width: 700px) {
   #menu {
     display: none;
-}
+  }
 
   header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
+  nav {
+    display: block;      /* siempre visible en desktop */
+    margin-top: 0;
+    background: transparent;
+  }
 
-nav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-}
+  nav ul {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
 
+  nav a {
+    padding: 0.5rem 0.75rem;
+  }
 
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
