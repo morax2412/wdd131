@@ -1,25 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Book of Mormon Favorite Chapters</title>
-  <meta name="description" content="DOM practice: favorite Book of Mormon chapters list." />
-  <meta name="author" content="Cristian Cantera Inafuku" />
-  <link rel="stylesheet" href="styles/bom.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Book of Mormon - Top 10</title>
+
+  <meta name="description" content="DOM practice: Book of Mormon Top 10 chapters." />
+  <meta name="author" content="Cristian Cantera Inafuku" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/bom.css" />
 </head>
+
 <body>
   <main>
     <h1>📘 Book of Mormon - Top 10</h1>
 
     <label for="favchap">Enter Book and Chapter:</label>
-    <input type="text" id="favchap" placeholder="Alma 5" />
+    <input
+      type="text"
+      id="favchap"
+      placeholder="Alma 5"
+      aria-label="Favorite Book of Mormon Chapter"
+    />
+
     <button type="button">Add Chapter</button>
 
     <ul id="list"></ul>
   </main>
 
+  <!-- JavaScript -->
   <script src="scripts/bom.js"></script>
 </body>
 </html>
