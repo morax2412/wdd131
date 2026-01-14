@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Temple Album</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- CSS (mobile first) -->
+  <link rel="stylesheet" href="styles/temples.css">
+  <link rel="stylesheet" href="styles/temples-large.css">
+
+  <!-- JS -->
+  <script src="scripts/temples.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Temple Album</h1>
+
+    <button id="menu" aria-label="Menu"></button>
+
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#">Old</a>
+      <a href="#">New</a>
+      <a href="#">Large</a>
+      <a href="#">Small</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Featured Temples</h2>
+
+    <section class="gallery">
+      <!-- 9 figures -->
+      <figure>
+        <img src="https://placehold.co/400x250" alt="Temple 1">
+        <figcaption>Temple One</figcaption>
+      </figure>
+      <!-- repite hasta tener 9 -->
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      © <span id="year"></span> | Cristian Cantera Inafuku |
+      Last Modified: <span id="modified"></span>
+    </p>
+  </footer>
+</body>
+</html>
