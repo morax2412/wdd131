@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Temple Album</title>
 
@@ -17,47 +17,80 @@
 </head>
 
 <body>
-  <<header>
-  <h1>Temple Album</h1>
+  <header>
+    <p class="site-title">Temple Album</p>
 
-  <button id="menu" aria-label="Open menu"></button>
+    <button id="menu" type="button" aria-label="Open menu" aria-controls="primaryNav" aria-expanded="false"></button>
 
-  <nav>
-    <ul>
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">Old</a></li>
-      <li><a href="#">New</a></li>
-      <li><a href="#">Large</a></li>
-      <li><a href="#">Small</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav id="primaryNav" aria-label="Primary navigation">
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Old</a></li>
+        <li><a href="#">New</a></li>
+        <li><a href="#">Large</a></li>
+        <li><a href="#">Small</a></li>
+      </ul>
+    </nav>
+  </header>
 
-
-<main>
+  <main>
     <h1>Featured Temples</h1>
 
-    <section class="gallery">
-    <figure><img src="images/temple.jpg" alt="Temple 1"><figcaption>Temple One</figcaption></figure>
-    <figure><img src="images/temple.jpg" alt="Temple 2"><figcaption>Temple Two</figcaption></figure>
-    <figure><img src="images/temple.jpg" alt="Temple 3"><figcaption>Temple Three</figcaption></figure>
-    <figure><img src="images/temple.jpg" alt="Temple 4"><figcaption>Temple Four</figcaption></figure>
-    <figure><img src="images/temple.jpg" alt="Temple 5"><figcaption>Temple Five</figcaption></figure>
-    <figure><img src="images/temple.jpg" alt="Temple 6"><figcaption>Temple Six</figcaption></figure>
-    <figure><img src="images/temple.jpg" alt="Temple 7"><figcaption>Temple Seven</figcaption></figure>
-    <figure><img src="images/temple.jpg" alt="Temple 8"><figcaption>Temple Eight</figcaption></figure>
-    <figure><img src="images/temple.jpg" alt="Temple 9"><figcaption>Temple Nine</figcaption></figure>
+    <section class="gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title" class="visually-hidden">Gallery</h2>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple One" loading="lazy">
+        <figcaption>Temple One</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple Two" loading="lazy">
+        <figcaption>Temple Two</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple Three" loading="lazy">
+        <figcaption>Temple Three</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple Four" loading="lazy">
+        <figcaption>Temple Four</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple Five" loading="lazy">
+        <figcaption>Temple Five</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple Six" loading="lazy">
+        <figcaption>Temple Six</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple Seven" loading="lazy">
+        <figcaption>Temple Seven</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple Eight" loading="lazy">
+        <figcaption>Temple Eight</figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/temple.jpg" alt="Temple Nine" loading="lazy">
+        <figcaption>Temple Nine</figcaption>
+      </figure>
     </section>
-</main>
+  </main>
 
-<footer>
-<p>
-    © <span id="year"></span> | Cristian Cantera Inafuku | Japan  
-    <br>
-    Last Modified: <span id="modified"></span>
-</p>
-</footer>
-
+  <footer>
+    <p>
+      © <span id="year"></span> | Cristian Cantera Inafuku | Japan<br>
+      Last Modified: <span id="modified"></span>
+    </p>
+  </footer>
 </body>
 </html>
-
