@@ -1,32 +1,47 @@
-@media (min-width: 700px) {
+/* =========================
+temples-large.css
+  Solo pantallas grandes
+   ========================= */
+
+@media (min-width: 768px) {
+
+  /* Header layout */
+  header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  /* Ocultar botón hamburguesa */
   #menu {
     display: none;
   }
 
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
+  /* Mostrar nav siempre */
   nav {
-    display: block;      /* siempre visible en desktop */
+    display: block;
+    background: none;
     margin-top: 0;
-    background: transparent;
   }
 
   nav ul {
     display: flex;
-    gap: 1rem;
     justify-content: flex-end;
+    gap: 0.5rem;
   }
 
   nav a {
-    padding: 0.5rem 0.75rem;
+    border-radius: 0.4rem;
   }
 
+  /* Galería en grid */
   .gallery {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  main {
+    padding: 2rem;
+  }
 }
+
 
