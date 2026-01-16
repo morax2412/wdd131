@@ -11,19 +11,19 @@ header {
   position: relative;
 }
 
-/* Si usaste mi HTML corregido y cambiaste h1 por .site-title */
+
 .site-title {
   margin: 0;
   font-size: 1.6rem;
   font-weight: 700;
 }
 
-/* Si aún tienes h1 en header, esto no hace daño */
+
 header h1 {
   margin: 0;
 }
 
-/* botón hamburguesa */
+
 #menu {
   position: absolute;
   top: 1rem;
@@ -38,12 +38,12 @@ header h1 {
 #menu::before { content: "≡"; }
 #menu.open::before { content: "✖"; }
 
-/* nav mobile cerrado por defecto */
+
 nav {
   display: none;
   margin-top: 1rem;
 
-  /* CAMBIO CLAVE: nav oscuro real */
+
   background: rgba(0, 0, 0, 0.18);
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: 0.5rem;
@@ -60,7 +60,7 @@ nav ul {
   padding: 0;
 }
 
-/* Links: blanco pero sobre fondo oscuro -> CONTRASTE OK */
+
 nav a {
   display: block;
   color: #fff;
@@ -68,16 +68,19 @@ nav a {
   padding: 0.75rem 1rem;
 }
 
-/* Hover más visible pero aún oscuro */
+
 nav a:hover {
-  background: rgba(255,255,255,0.16);
+  background: rgba(255, 255, 255, 0.18); 
+  color: #ffffff;
 }
 
-/* Active: más contraste (fondo más fuerte) */
+
 nav a.active {
-  background: rgba(255,255,255,0.28);
-  font-weight: 700;
+  background: #0f2a74;   
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
+
 
 /* layout */
 main {
