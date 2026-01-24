@@ -2,15 +2,12 @@
   --red:#c8102e;
   --green:#006b3f;
 
-  --text:#111;
-  --muted:#333;
-
-  /* Madagascar look: translucent panel */
-  --card-bg: rgba(255,255,255,.68);
-  --shadow: 0 10px 22px rgba(0,0,0,.18);
-
-  /* layout */
   --max: 980px;
+
+  /* look “Madagascar” */
+  --card-bg: rgba(255,255,255,.72);
+  --border: 1px solid rgba(0,0,0,.12);
+  --shadow: 0 10px 22px rgba(0,0,0,.18);
 }
 
 *{ box-sizing:border-box; }
@@ -18,16 +15,18 @@
 body{
   margin:0;
   font-family: system-ui, Arial, sans-serif;
-  color:var(--text);
-  background:#e9efe9; /* light page background similar to example */
+  background:#eaf2ea; /* leve verdoso como el ejemplo */
+  color:#111;
 }
 
-/* Header: big red + thin green stripe at bottom */
+/* Header: rojo + franja verde abajo */
 .site-header{
-  background:var(--red);
+  max-width: var(--max);
+  margin: 0 auto;
+  background: var(--red);
   color:#fff;
   text-align:center;
-  padding: 1.6rem 1rem;
+  padding: 1.6rem 1rem 1.2rem;
   position:relative;
 }
 
@@ -36,119 +35,101 @@ body{
   position:absolute;
   left:0; right:0; bottom:0;
   height:10px;
-  background:var(--green);
+  background: var(--green);
 }
 
 .site-header h1{
   margin:0;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 2.6rem;
   font-weight: 800;
+  letter-spacing:.5px;
 }
 
-/* Main wrapper */
+/* Layout wrapper */
 main{
   max-width: var(--max);
   margin: 0 auto;
 }
 
-/* HERO: force a 2:1 area (so NO huge empty space) */
+/* Hero */
 .hero{
   position:relative;
-  aspect-ratio: 2 / 1;     /* key: same as 1500x750 */
   overflow:hidden;
-  background:#ddd;
 }
 
-/* Make the image fill the hero area */
 .hero picture,
 .hero img{
   display:block;
   width:100%;
-  height:100%;
+  height:auto;
 }
 
-.hero img{
-  object-fit: cover;
-}
-
-/* Shared card style (Madagascar translucent) */
+/* Cards: base style */
 .card{
-  position:absolute;
+  position:absolute;            /* clave para poder ubicarlas como el ejemplo */
   background: var(--card-bg);
+  border: var(--border);
   box-shadow: var(--shadow);
-  border: 1px solid rgba(0,0,0,.12);
-  border-radius: 2px;         /* Madagascar looks more squared */
-  padding: 3.1rem 1.1rem 1.1rem; /* top space for green label */
-  backdrop-filter: blur(2px);
+  width: 260px;                 /* parecido al ejemplo */
+  padding: 2.4rem 1rem 1rem;    /* espacio para el tag verde */
 }
 
-/* Green “label bar” */
-.card h2{
+/* Tag verde: tipo sticker, NO ocupa todo el ancho */
+.card .tag{
   position:absolute;
-  top: .8rem;
-  left: .75rem;
+  top:-18px;        /* sobresale hacia arriba */
+  left: 14px;
   margin:0;
   background: var(--green);
   color:#fff;
-  padding: .6rem .95rem;
+  padding: .7rem 1.2rem;
   font-size: 1.25rem;
   font-weight: 800;
-  letter-spacing: .2px;
-  box-shadow: 0 8px 16px rgba(0,0,0,.18);
+  width: 185px;     /* barra corta como el ejemplo */
+  box-shadow: 0 8px 14px rgba(0,0,0,.18);
 }
 
-/* Weather emoji should appear in the label like example */
-.wx-emoji{
-  margin-left: .35rem;
-  font-size: 1.05em;
+/* Weather title: emoji sólo en wide usando pseudo-element (requisito) */
+@media (min-width: 800px){
+  .weather-title::after{
+    content:"  ⛅";
+    font-weight: 600;
+    margin-left: .35rem;
+  }
 }
 
-/* Lists (clean, Madagascar-like) */
-.card ul{
+/* Facts list: centrado como Madagascar (no 2 columnas a los lados) */
+.facts{
   list-style:none;
   padding:0;
   margin:0;
-  font-size: .95rem;
+  text-align:center;
+  font-size: .85rem;
 }
 
-.card li{
-  display:flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: .22rem 0;
+.facts li{
+  padding: .18rem 0;
 }
 
-.label{
+.facts .label{
   font-weight: 700;
-  color: var(--muted);
+  margin-right: .35rem;
 }
 
-.value{
-  text-align:right;
+.facts .value{
+  font-weight: 500;
 }
 
-/* Positioning cards like Madagascar (wide view) */
-.data{
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 260px;
-}
-
-.weather{
-  right: 18px;
-  top: 58%;
-  transform: translateY(-50%);
-  width: 280px;
-}
-
-/* Mobile icon: show on small screens only */
+/* SVG icon (mobile required) */
 .weather-icon{
-  display:none; /* default hidden in wide view */
+  display:block;
+  margin: .25rem auto .6rem;
 }
 
-/* Footer: solid red block, no extra green stripe (like Madagascar) */
+/* FOOTER: rojo (sin franja verde arriba, como tu ejemplo de Osaka) */
 .site-footer{
+  max-width: var(--max);
+  margin: 0 auto;
   background: var(--red);
   color:#fff;
   text-align:center;
@@ -159,36 +140,37 @@ main{
   margin:.25rem 0;
 }
 
-/* ---------- MOBILE LAYOUT (stacked) ---------- */
+/* ========== POSICIONAMIENTO ========== */
+
+/* MOBILE: tarjetas debajo de la imagen, una bajo la otra */
 @media (max-width: 799px){
-
-  /* On mobile, we don't overlay the cards on top of image.
-     We let hero be normal flow: image + stacked cards below. */
-  .hero{
-    aspect-ratio: auto;
-    overflow: visible;
-  }
-
-  .hero picture,
-  .hero img{
-    height:auto;
-  }
-
   .card{
     position: static;
-    transform: none;
-    width:auto;
-    margin: 1rem;
+    width: min(92%, 360px);
+    margin: 1.25rem auto;
   }
 
-  /* show SVG icon only on mobile */
+  /* en mobile NO queremos el emoji por pseudo-element */
+  .weather-title::after{ content:""; }
+}
+
+/* WIDE: Data arriba-izq y Weather abajo-der (como Madagascar) */
+@media (min-width: 800px){
+  .data{
+    top: 36px;
+    left: 24px;
+  }
+
+  .weather{
+    right: 24px;
+    bottom: 38px;
+    width: 280px;
+  }
+
+  /* en wide: ocultar SVG, usar emoji con pseudo-element */
   .weather-icon{
-    display:block;
-  }
-
-  /* in mobile, remove emoji from the title if you want to rely on svg */
-  .wx-emoji{
     display:none;
   }
 }
+
 

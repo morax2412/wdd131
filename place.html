@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Osaka, Japan</title>
-  <meta name="description" content="Place page for Osaka, Japan with data and weather." />
+  <meta name="description" content="A place page featuring data and weather for Osaka, Japan." />
 
   <link rel="stylesheet" href="styles/place.css" />
   <script src="scripts/place.js" defer></script>
@@ -19,33 +19,45 @@
     <section class="hero" aria-label="Hero image with place information">
       <picture>
         <source type="image/webp" srcset="images/hero-large.webp" media="(min-width: 1000px)" />
-        <source type="image/webp" srcset="images/hero-medium.webp" media="(min-width: 500px)" />
+        <source type="image/webp" srcset="images/hero-medium.webp" media="(min-width: 600px)" />
         <img
           src="images/hero-small.webp"
           alt="Osaka Castle in Osaka, Japan"
           width="1500"
           height="750"
+          loading="lazy"
         />
       </picture>
 
-      <!-- Cards OVER the image (like Madagascar in wide view) -->
       <section class="card data" aria-label="Place data">
-        <h2>Data</h2>
-        <ul>
-          <li><span class="label">Country:</span> <span class="value">Japan</span></li>
-          <li><span class="label">Region:</span> <span class="value">Kansai</span></li>
-          <li><span class="label">Prefecture:</span> <span class="value">Osaka</span></li>
+        <h2 class="tag">Data</h2>
+
+        <ul class="facts">
+          <li><span class="label">Area:</span> <span class="value">225.21 km²</span></li>
+          <li><span class="label">Population:</span> <span class="value">2.75M</span></li>
+          <li><span class="label">Capital:</span> <span class="value">Osaka</span></li>
+          <li><span class="label">Languages:</span> <span class="value">Japanese</span></li>
           <li><span class="label">Currency:</span> <span class="value">JPY (¥)</span></li>
           <li><span class="label">Time Zone:</span> <span class="value">UTC+9</span></li>
-          <li><span class="label">Language:</span> <span class="value">Japanese</span></li>
+          <li><span class="label">Calling Code:</span> <span class="value">+81</span></li>
+          <li><span class="label">Internet TLD:</span> <span class="value">.jp</span></li>
         </ul>
       </section>
 
       <section class="card weather" aria-label="Weather information">
-        <h2 class="weather-title">Weather <span class="wx-emoji" aria-hidden="true">⛅</span></h2>
+        <h2 class="tag weather-title">Weather</h2>
 
-      
-        <ul>
+        <!-- MOBILE: required SVG icon -->
+        <img
+          class="weather-icon"
+          src="images/weather.svg"
+          alt="Partly cloudy"
+          width="42"
+          height="42"
+          loading="lazy"
+        />
+
+        <ul class="facts">
           <li><span class="label">Temperature:</span> <span class="value"><span id="temp">10</span> °C</span></li>
           <li><span class="label">Conditions:</span> <span class="value">Partly Cloudy</span></li>
           <li><span class="label">Wind:</span> <span class="value"><span id="wind">5</span> km/h</span></li>
@@ -56,11 +68,12 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="currentyear"></span> Cristian Cantera Inafuku | Osaka, Japan</p>
+    <p>&copy; <span id="currentyear"></span> Cristian Cantera Inafuku &nbsp;|&nbsp; Osaka, Japan</p>
     <p>Last Modification: <span id="lastmodified"></span></p>
   </footer>
 </body>
 </html>
+
 
 
 
