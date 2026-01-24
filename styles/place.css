@@ -1,17 +1,20 @@
 :root {
-  --bg: #f3f6f4;
+  --bg: #eaf3ea;              /* fondo suave como el ejemplo */
   --text: #111;
-  --muted: #444;
+  --muted: #333;
 
-  --accent: #c8102e;  /* rojo */
-  --accent2: #006b3f; /* verde */
+  --accent: #c8102e;          /* rojo */
+  --accent2: #006b3f;         /* verde */
 
-  --border: 1px solid rgba(0, 0, 0, 0.18);
-  --shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
   --max: 980px;
 
-  /* tarjeta “semi transparente” como Madagascar */
-  --card-bg: rgba(255, 255, 255, 0.72);
+  /* tarjeta translucida */
+  --card-bg: rgba(255, 255, 255, 0.70);
+  --border: 1px solid rgba(0, 0, 0, 0.12);
+  --shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+
+  /* etiqueta */
+  --tag-shadow: 0 10px 18px rgba(0,0,0,.18);
 }
 
 * { box-sizing: border-box; }
@@ -23,12 +26,23 @@ body {
   background: var(--bg);
 }
 
-/* HEADER: rojo + línea verde delgada pegada abajo */
+/* =========================
+   LAYOUT WRAPPER (como ejemplo)
+========================= */
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  background: transparent;
+}
+
+/* =========================
+   HEADER: rojo + franja verde abajo
+========================= */
 .site-header {
   background: var(--accent);
   color: #fff;
   text-align: center;
-  padding: 1.6rem 1rem 1.3rem;
+  padding: 1.5rem 1rem 1.25rem;
   position: relative;
 }
 
@@ -37,28 +51,26 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;            /* pegada abajo */
-  height: 10px;         /* delgada */
+  bottom: 0;
+  height: 10px;               /* franja verde delgada */
   background: var(--accent2);
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   letter-spacing: 0.5px;
 }
 
-/* MAIN */
-main {
-  max-width: var(--max);
-  margin: 0 auto;
-}
-
-/* HERO */
+/* =========================
+   HERO IMAGE
+========================= */
 .hero {
   position: relative;
+  overflow: hidden;
 }
 
+/* la imagen ocupa todo el ancho del contenedor */
 .hero picture,
 .hero img {
   display: block;
@@ -66,40 +78,48 @@ main {
   height: auto;
 }
 
-/* Cards container (mobile: debajo de la imagen) */
+/* =========================
+   CARDS - MOBILE FIRST
+   (en móvil se apilan debajo de la imagen)
+========================= */
 .cards {
   padding: 1rem;
   display: grid;
   gap: 1.25rem;
 }
 
-/* CARD: translúcida */
 .card {
-  position: relative;                 /* necesario para la “etiqueta” */
-  background: var(--card-bg);
+  position: relative;
+  background: rgba(255,255,255,0.92); /* en móvil más legible */
   border: var(--border);
   box-shadow: var(--shadow);
-  border-radius: 6px;
-  padding: 2.4rem 1rem 1rem;          /* espacio arriba para la etiqueta */
+  border-radius: 4px;
+  padding: 2.8rem 1rem 1rem;          /* espacio para etiqueta */
   overflow: hidden;
 }
 
-/* ETIQUETA VERDE “flotante” (no dentro) */
+/* Etiqueta verde flotante (como Madagascar) */
 .card h2 {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
+
   margin: 0;
-  padding: 0.6rem 0.9rem;
+  padding: 0.55rem 0.85rem;
+
   background: var(--accent2);
   color: #fff;
   font-size: 1.35rem;
-  border-radius: 0;                   /* como el ejemplo */
-  width: calc(100% - 1.5rem);         /* que se vea tipo barra */
-  box-shadow: 0 10px 18px rgba(0,0,0,.18);
+  font-weight: 700;
+
+  /* tamaño tipo “placa” */
+  width: 72%;
+  max-width: 230px;
+
+  box-shadow: var(--tag-shadow);
 }
 
-/* LISTA */
+/* Listas */
 .card ul {
   list-style: none;
   padding: 0;
@@ -108,41 +128,45 @@ main {
 
 .card li {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 150px 1fr;  /* parecido al ejemplo */
   gap: 0.75rem;
-  padding: 0.35rem 0;
+  padding: 0.28rem 0;
+  align-items: baseline;
 }
 
 .label {
   font-weight: 700;
   color: var(--muted);
+  text-align: left;
 }
 
 .value {
-  text-align: right;
+  text-align: left;  /* en el ejemplo se lee más “alineado” */
 }
 
 /* Nota */
 .note {
-  margin-top: 0.8rem;
-  color: var(--muted);
+  margin-top: 0.85rem;
   font-size: 0.9rem;
+  color: var(--muted);
 }
 
-/* Weather icon (solo mobile) */
+/* Icono SVG solo en móvil */
 .weather-icon {
   display: block;
-  width: 64px;
-  height: 64px;
-  margin: 0.5rem auto 1rem;
+  width: 56px;
+  height: 56px;
+  margin: 0.6rem auto 1rem;
 }
 
-/* FOOTER: rojo + línea verde delgada arriba (como frame) */
+/* =========================
+   FOOTER: rojo + franja verde arriba
+========================= */
 .site-footer {
   background: var(--accent);
   color: #fff;
   text-align: center;
-  padding: 1.1rem 1rem 1.2rem;
+  padding: 1.15rem 1rem 1.2rem;
   position: relative;
 }
 
@@ -151,7 +175,7 @@ main {
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;            /* pegada arriba */
+  top: 0;
   height: 10px;
   background: var(--accent2);
 }
@@ -160,35 +184,46 @@ main {
   margin: 0.25rem 0;
 }
 
-/* WIDE VIEW: cards flotando encima del hero (data izq, weather der) */
+/* =========================
+   WIDE VIEW: cards flotando sobre el hero
+   (Data izquierda, Weather derecha)
+========================= */
 @media (min-width: 800px) {
 
-  /* importante: que la imagen sea el “fondo” */
-  .hero {
-    overflow: hidden;
-  }
-
+  /* El hero es el “fondo” y las cards flotan encima */
   .cards {
     position: absolute;
     inset: 0;
-    padding: 1.5rem;
-    display: grid;
-    grid-template-columns: 320px 1fr 320px;
-    grid-template-areas: "data . weather";
-    align-items: center;
-    gap: 1.5rem;
+    padding: 0;
+    display: block; /* no grid: evita deformaciones */
   }
 
-  .data { grid-area: data; align-self: center; }
-  .weather { grid-area: weather; align-self: center; }
-
-  /* un poco más “flotante” */
   .card {
-    background: rgba(255,255,255,.65);
+    width: 300px;                    /* tamaño como Madagascar */
+    background: var(--card-bg);      /* translúcida */
     backdrop-filter: blur(2px);
+    padding: 2.6rem 1rem 1rem;
   }
 
-  /* ocultar SVG en wide y poner emoji */
+  /* posiciones muy similares al ejemplo */
+  .data {
+    position: absolute;
+    top: 48px;
+    left: 34px;
+  }
+
+  .weather {
+    position: absolute;
+    top: 120px;
+    right: 34px;
+  }
+
+  /* etiqueta un poco más ancha para "Weather" */
+  .weather h2 {
+    max-width: 250px;
+  }
+
+  /* en wide: ocultar SVG y usar emoticon al lado del título */
   .weather-icon { display: none; }
 
   .weather-title::after {
