@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Osaka, Japan</title>
-  <meta name="description" content="A simple country/place page featuring data and weather." />
+  <meta name="description" content="Place page featuring data and weather." />
 
   <link rel="stylesheet" href="styles/place.css" />
   <script src="scripts/place.js" defer></script>
@@ -29,37 +29,39 @@
       </picture>
 
       <div class="cards">
+        <!-- DATA -->
         <section class="card data" aria-label="Place data">
-          <h2>Data</h2>
-          <ul>
-            <li><span class="label">Country:</span> <span class="value">Japan</span></li>
-            <li><span class="label">Region:</span> <span class="value">Kansai</span></li>
-            <li><span class="label">Prefecture:</span> <span class="value">Osaka</span></li>
-            <li><span class="label">Currency:</span> <span class="value">JPY (¥)</span></li>
-            <li><span class="label">Time Zone:</span> <span class="value">UTC+9</span></li>
-            <li><span class="label">Language:</span> <span class="value">Japanese</span></li>
-          </ul>
-          <p class="note">Note: Replace data with verified values if required.</p>
+          <h2 class="card-title">Data</h2>
+          <dl class="kv">
+            <div><dt>Country:</dt><dd>Japan</dd></div>
+            <div><dt>Region:</dt><dd>Kansai</dd></div>
+            <div><dt>Prefecture:</dt><dd>Osaka</dd></div>
+            <div><dt>Currency:</dt><dd>JPY (¥)</dd></div>
+            <div><dt>Time Zone:</dt><dd>UTC+9</dd></div>
+            <div><dt>Language:</dt><dd>Japanese</dd></div>
+          </dl>
         </section>
 
+        <!-- WEATHER -->
         <section class="card weather" aria-label="Weather information">
-          <h2 class="weather-title">Weather</h2>
+          <h2 class="card-title weather-title">Weather</h2>
 
-          <!-- Mobile view icon (SVG) -->
+          <!-- Mobile icon (SVG) -->
           <img
             class="weather-icon"
             src="images/weather.svg"
-            alt="Partly cloudy icon"
-            width="64"
-            height="64"
+            alt=""
+            width="48"
+            height="48"
+            loading="lazy"
           />
 
-          <ul>
-            <li><span class="label">Temperature:</span> <span class="value"><span id="temp">10</span> °C</span></li>
-            <li><span class="label">Conditions:</span> <span class="value">Partly Cloudy</span></li>
-            <li><span class="label">Wind:</span> <span class="value"><span id="wind">5</span> km/h</span></li>
-            <li><span class="label">Wind Chill:</span> <span class="value"><span id="windchill">N/A</span></span></li>
-          </ul>
+          <dl class="kv">
+            <div><dt>Temperature:</dt><dd><span id="temp">10</span> °C</dd></div>
+            <div><dt>Conditions:</dt><dd>Partly Cloudy</dd></div>
+            <div><dt>Wind:</dt><dd><span id="wind">5</span> km/h</dd></div>
+            <div><dt>Wind Chill:</dt><dd><span id="windchill">N/A</span></dd></div>
+          </dl>
         </section>
       </div>
     </section>
@@ -71,4 +73,5 @@
   </footer>
 </body>
 </html>
+
 
