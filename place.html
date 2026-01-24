@@ -18,14 +18,13 @@
   <main>
     <section class="hero" aria-label="Hero image with place information">
       <picture>
-        <source srcset="images/hero-large.webp" media="(min-width: 1000px)" />
-        <source srcset="images/hero-medium.webp" media="(min-width: 500px)" />
+        <source type="image/webp" srcset="images/hero-large.webp" media="(min-width: 1000px)" />
+        <source type="image/webp" srcset="images/hero-medium.webp" media="(min-width: 500px)" />
         <img
           src="images/hero-small.webp"
-          alt="A representative view of Osaka, Japan"
+          alt="Osaka Castle in Osaka, Japan"
           width="1500"
           height="750"
-          loading="lazy"
         />
       </picture>
 
@@ -47,7 +46,13 @@
           <h2 class="weather-title">Weather</h2>
 
           <!-- Mobile view icon (SVG) -->
-          <img class="weather-icon" src="images/weather.svg" alt="Partly cloudy icon" />
+          <img
+            class="weather-icon"
+            src="images/weather.svg"
+            alt="Partly cloudy icon"
+            width="64"
+            height="64"
+          />
 
           <ul>
             <li><span class="label">Temperature:</span> <span class="value"><span id="temp">10</span> °C</span></li>
@@ -61,10 +66,9 @@
   </main>
 
   <footer class="site-footer">
-    <p>
-      &copy; <span id="currentyear"></span> Cristian Cantera Inafuku | Osaka, Japan
-    </p>
+    <p>&copy; <span id="currentyear"></span> Cristian Cantera Inafuku | Osaka, Japan</p>
     <p>Last Modification: <span id="lastmodified"></span></p>
   </footer>
 </body>
 </html>
+

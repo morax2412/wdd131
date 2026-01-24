@@ -1,13 +1,16 @@
 :root {
   --bg: #f3f6f4;
-  --surface: #ffffff;
   --text: #111;
   --muted: #444;
-  --accent: #c8102e;     /* rojo (puedes cambiarlo) */
-  --accent2: #0b6b3a;    /* verde (puedes cambiarlo) */
-  --border: 1px solid rgba(0,0,0,.15);
-  --shadow: 0 10px 25px rgba(0,0,0,.12);
+
+  --accent: #c8102e;  /* rojo */
+  --accent2: #006b3f; /* verde */
+
+  --border: 1px solid rgba(0, 0, 0, 0.15);
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   --max: 980px;
+
+  --card-bg: rgba(255, 255, 255, 0.82); /* más “Madagascar” */
 }
 
 * { box-sizing: border-box; }
@@ -19,25 +22,37 @@ body {
   background: var(--bg);
 }
 
+/* HEADER (solo UNA versión, sin duplicar) */
 .site-header {
   background: var(--accent);
   color: #fff;
-  padding: 1.25rem 1rem;
   text-align: center;
-  border-bottom: 8px solid var(--accent2);
+  padding: 1.25rem 1rem;
+  position: relative;
+}
+
+/* banda verde debajo del header */
+.site-header::after {
+  content: "";
+  display: block;
+  height: 8px;
+  background: var(--accent2);
+  margin-top: 1rem;
 }
 
 .site-header h1 {
   margin: 0;
   font-size: 2rem;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
 }
 
+/* MAIN */
 main {
   max-width: var(--max);
   margin: 0 auto;
 }
 
+/* HERO */
 .hero {
   position: relative;
 }
@@ -49,29 +64,34 @@ main {
   height: auto;
 }
 
-/* Cards container */
+/* CARDS: Mobile = apilado */
 .cards {
   padding: 1rem;
   display: grid;
   gap: 1rem;
 }
 
-/* Card style */
+/* CARD */
 .card {
-  background: rgba(255,255,255,.92);
+  background: var(--card-bg);
   border: var(--border);
   box-shadow: var(--shadow);
   border-radius: 10px;
   padding: 1rem;
+  backdrop-filter: blur(2px); /* opcional: look “glass” (si el navegador lo soporta) */
 }
 
+/* TITULO VERDE COMPLETO como Madagascar */
 .card h2 {
-  margin: 0 0 .75rem 0;
-  font-size: 1.4rem;
-  border-left: 8px solid var(--accent2);
-  padding-left: .6rem;
+  margin: -1rem -1rem 1rem -1rem; /* estira el h2 a los bordes del card */
+  padding: 0.65rem 0.85rem;
+  font-size: 1.35rem;
+  background: var(--accent2);
+  color: #fff;
+  border-radius: 10px 10px 0 0;
 }
 
+/* LISTA */
 .card ul {
   list-style: none;
   padding: 0;
@@ -81,8 +101,8 @@ main {
 .card li {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: .5rem;
-  padding: .25rem 0;
+  gap: 0.75rem;
+  padding: 0.3rem 0;
 }
 
 .label {
@@ -95,52 +115,65 @@ main {
 }
 
 .note {
-  margin-top: .75rem;
+  margin-top: 0.75rem;
   color: var(--muted);
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
-/* Weather icon for mobile */
+/* ICONO SVG (solo mobile) */
 .weather-icon {
   display: block;
   width: 64px;
   height: 64px;
-  margin: .25rem auto 1rem auto;
+  margin: 0.25rem auto 1rem auto;
 }
 
-/* Footer */
+/* FOOTER */
 .site-footer {
   background: var(--accent);
   color: #fff;
   text-align: center;
   padding: 1rem;
-  border-top: 8px solid var(--accent2);
+  margin-top: 0; /* pegado como ejemplo */
+}
+
+.site-footer::before {
+  content: "";
+  display: block;
+  height: 8px;
+  background: var(--accent2);
+  margin-bottom: 1rem;
 }
 
 .site-footer p {
-  margin: .25rem 0;
+  margin: 0.25rem 0;
 }
 
-/* WIDE VIEW (wireframe: data left, weather right over hero) */
+/* WIDE VIEW: Data izquierda, Weather derecha sobre la imagen */
 @media (min-width: 800px) {
   .cards {
     position: absolute;
     inset: 0;
     padding: 1.5rem;
-    align-content: center;
+    display: grid;
     grid-template-columns: 320px 1fr 320px;
     grid-template-areas: "data . weather";
+    align-items: center;
+    pointer-events: none; /* evita que “bloquee” la imagen si haces scroll/click */
   }
 
   .data { grid-area: data; }
   .weather { grid-area: weather; }
 
-  /* In wide view, hide SVG icon and use emoticon via pseudo-element */
+  /* permite interacción dentro de cards si la necesitas */
+  .card { pointer-events: auto; }
+
+  /* ocultar SVG en wide y usar emoji con pseudo-element */
   .weather-icon { display: none; }
 
   .weather-title::after {
     content: " ⛅";
-    font-size: 1.2em;
-    margin-left: .25rem;
+    font-size: 1.1em;
+    margin-left: 0.25rem;
   }
 }
