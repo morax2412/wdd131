@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Osaka, Japan</title>
-  <meta name="description" content="Place page featuring place data and weather." />
+  <meta name="description" content="A simple place page featuring data and weather." />
 
   <link rel="stylesheet" href="styles/place.css" />
   <script src="scripts/place.js" defer></script>
@@ -15,41 +15,62 @@
     <h1>Osaka, Japan</h1>
   </header>
 
-  <main class="page">
+  <main class="wrap">
     <section class="hero" aria-label="Hero image with place information">
       <picture>
         <source type="image/webp" srcset="images/hero-large.webp" media="(min-width: 1000px)" />
-        <source type="image/webp" srcset="images/hero-medium.webp" media="(min-width: 600px)" />
-        <img src="images/hero-small.webp" alt="Osaka Castle in Osaka, Japan" width="1500" height="750" />
+        <source type="image/webp" srcset="images/hero-medium.webp" media="(min-width: 500px)" />
+        <img
+          class="hero-img"
+          src="images/hero-small.webp"
+          alt="Osaka Castle in Osaka, Japan"
+          width="1200"
+          height="600"
+          loading="lazy"
+        />
       </picture>
 
-      <section class="card data" aria-label="Place data">
-        <h2>Data</h2>
-        <ul class="data-list">
-          <li><span class="k">Area:</span><span class="v">225.21 km²</span></li>
-          <li><span class="k">Population:</span><span class="v">2.75M</span></li>
-          <li><span class="k">Capital:</span><span class="v">Osaka</span></li>
-          <li><span class="k">Languages:</span><span class="v">Japanese</span></li>
-          <li><span class="k">Currency:</span><span class="v">JPY (¥)</span></li>
-          <li><span class="k">Time Zone:</span><span class="v">UTC+9</span></li>
-          <li><span class="k">Calling Code:</span><span class="v">+81</span></li>
-          <li><span class="k">Internet TLD:</span><span class="v">.jp</span></li>
-        </ul>
-      </section>
+      <!-- OVERLAY cards (en wide se posicionan encima de la imagen) -->
+      <div class="cards">
+        <!-- DATA -->
+        <section class="card data" aria-label="Place data">
+          <h2 class="tag">Data</h2>
 
-      <section class="card weather" aria-label="Weather information">
-        <h2 class="weather-title">Weather</h2>
+          <!-- dl = “Label: Value” centrado y alineado (tipo Madagascar) -->
+          <dl class="kv">
+            <div><dt>Area:</dt><dd>225.21 km&sup2;</dd></div>
+            <div><dt>Population:</dt><dd>2.75M</dd></div>
+            <div><dt>Capital:</dt><dd>Osaka</dd></div>
+            <div><dt>Languages:</dt><dd>Japanese</dd></div>
+            <div><dt>Currency:</dt><dd>JPY (&yen;)</dd></div>
+            <div><dt>Time Zone:</dt><dd>UTC+9</dd></div>
+            <div><dt>Calling Code:</dt><dd>+81</dd></div>
+            <div><dt>Internet TLD:</dt><dd>.jp</dd></div>
+          </dl>
+        </section>
 
-        <!-- Mobile view icon (SVG required by assignment) -->
-        <img class="weather-icon" src="images/weather.svg" alt="Partly cloudy icon" width="64" height="64" />
+        <!-- WEATHER -->
+        <section class="card weather" aria-label="Weather information">
+          <h2 class="tag weather-title">Weather</h2>
 
-        <ul class="weather-list">
-          <li><span class="k">Temperature:</span><span class="v"><span id="temp">10</span> °C</span></li>
-          <li><span class="k">Conditions:</span><span class="v">Partly Cloudy</span></li>
-          <li><span class="k">Wind:</span><span class="v"><span id="wind">5</span> km/h</span></li>
-          <li><span class="k">Wind Chill:</span><span class="v"><span id="windchill">N/A</span></span></li>
-        </ul>
-      </section>
+          <!-- SVG SOLO para mobile (en wide lo ocultas con CSS y usas emoji) -->
+          <img
+            class="weather-icon"
+            src="images/weather.svg"
+            alt="Partly cloudy icon"
+            width="96"
+            height="96"
+            loading="lazy"
+          />
+
+          <dl class="kv">
+            <div><dt>Temperature:</dt><dd><span id="temp">10</span> &deg;C</dd></div>
+            <div><dt>Conditions:</dt><dd>Partly Cloudy</dd></div>
+            <div><dt>Wind:</dt><dd><span id="wind">5</span> km/h</dd></div>
+            <div><dt>Wind Chill:</dt><dd><span id="windchill">N/A</span></dd></div>
+          </dl>
+        </section>
+      </div>
     </section>
   </main>
 

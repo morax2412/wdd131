@@ -1,30 +1,32 @@
-// Footer info
-const yearEl = document.querySelector("#currentyear");
-const modEl = document.querySelector("#lastmodified");
-if (yearEl) yearEl.textContent = new Date().getFullYear();
-if (modEl) modEl.textContent = document.lastModified;
+// ===== Footer info =====
+document.querySelector("#currentyear").textContent =
+  new Date().getFullYear();
 
-// Read static values from HTML
-const tempEl = document.querySelector("#temp");
-const windEl = document.querySelector("#wind");
-const chillEl = document.querySelector("#windchill");
+document.querySelector("#lastmodified").textContent =
+  document.lastModified;
 
-const tempC = tempEl ? Number(tempEl.textContent) : NaN;
-const windKmh = windEl ? Number(windEl.textContent) : NaN;
 
-// One-line return (required)
+// ===== Static weather values from HTML =====
+const temperature = Number(document.querySelector("#temp").textContent);   // °C
+const windSpeed = Number(document.querySelector("#wind").textContent);     // km/h
+
+
+// ===== Wind Chill Calculation (metric) =====
+// Formula required by BYU assignment
 const calculateWindChill = (t, v) =>
-  13.12 + (0.6215 * t) - (11.37 * (v ** 0.16)) + (0.3965 * t * (v ** 0.16));
+  13.12 +
+  (0.6215 * t) -
+  (11.37 * Math.pow(v, 0.16)) +
+  (0.3965 * t * Math.pow(v, 0.16));
 
-let result = "N/A";
 
-// Apply only if conditions are met (metric)
-if (!Number.isNaN(tempC) && !Number.isNaN(windKmh) && tempC <= 10 && windKmh > 4.8) {
-  result = `${calculateWindChill(tempC, windKmh).toFixed(1)} °C`;
+// ===== Apply conditions =====
+let windChill = "N/A";
+
+if (temperature <= 10 && windSpeed > 4.8) {
+  windChill = `${calculateWindChill(temperature, windSpeed).toFixed(1)} °C`;
 }
 
-if (chillEl) chillEl.textContent = result;
 
-
-
-
+// ===== Output to page =====
+document.querySelector("#windchill").textContent = windChill;
