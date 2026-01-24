@@ -184,7 +184,6 @@ main{
   /* show SVG icon only on mobile */
   .weather-icon{
     display:block;
-    margin: .35rem auto .8rem;
   }
 
   /* in mobile, remove emoji from the title if you want to rely on svg */
