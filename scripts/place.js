@@ -1,25 +1,27 @@
-// Footer: year + last modified
-const yearEl = document.querySelector("#currentyear");
-const modEl = document.querySelector("#lastmodified");
+// Footer info
+const yearSpan = document.querySelector("#currentyear");
+const modSpan = document.querySelector("#lastmodified");
 
-yearEl.textContent = new Date().getFullYear();
-modEl.textContent = document.lastModified;
+if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+if (modSpan) modSpan.textContent = document.lastModified;
 
-// Static weather values (must match what is displayed)
+// Static weather inputs (must match HTML)
 const tempEl = document.querySelector("#temp");
 const windEl = document.querySelector("#wind");
 const chillEl = document.querySelector("#windchill");
 
-const tempC = Number(tempEl.textContent);
-const windKmh = Number(windEl.textContent);
+const tempC = tempEl ? Number(tempEl.textContent) : NaN;
+const windKmh = windEl ? Number(windEl.textContent) : NaN;
 
-// One-line function (required)
+// One-line return function (required)
 const calculateWindChill = (t, v) =>
   13.12 + 0.6215 * t - 11.37 * (v ** 0.16) + 0.3965 * t * (v ** 0.16);
 
-// Viable wind chill (metric)
-const isViable = tempC <= 10 && windKmh > 4.8;
+// Conditions for valid windchill (metric)
+let result = "N/A";
+if (!Number.isNaN(tempC) && !Number.isNaN(windKmh) && tempC <= 10 && windKmh > 4.8) {
+  result = `${calculateWindChill(tempC, windKmh).toFixed(1)} °C`;
+}
 
-chillEl.textContent = isViable
-  ? `${calculateWindChill(tempC, windKmh).toFixed(1)} °C`
-  : "N/A";
+if (chillEl) chillEl.textContent = result;
+

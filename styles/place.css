@@ -1,56 +1,67 @@
 :root{
-  --bg: #eaf2ea;
-  --text: #1a1a1a;
-  --muted: #3a3a3a;
+  --page-bg: #eaf4ea;     /* fondo verdoso claro (como el ejemplo) */
+  --accent:  #c8102e;     /* rojo */
+  --accent2: #006b3f;     /* verde */
 
-  --red: #c8102e;
-  --green: #006b3f;
+  --text: #111;
+  --muted: #333;
 
-  --shadow: 0 10px 22px rgba(0,0,0,.22);
-  --border: 1px solid rgba(0,0,0,.18);
+  --max: 980px;
 
-  /* translúcido como el ejemplo Madagascar */
-  --card: rgba(255,255,255,.68);
+  /* “glass” */
+  --card-bg: rgba(255,255,255,.68);
+  --card-border: rgba(0,0,0,.18);
+  --shadow: 0 10px 24px rgba(0,0,0,.18);
 }
 
-*{ box-sizing:border-box; }
+*{ box-sizing: border-box; }
 
 body{
-  margin:0;
+  margin: 0;
   font-family: system-ui, Arial, sans-serif;
-  color:var(--text);
-  background:var(--bg);
+  background: var(--page-bg);
+  color: var(--text);
 }
 
-/* HEADER: rojo + franja verde ABAJO (solo una franja, como Madagascar) */
+/* HEADER rojo + franja verde abajo (solo aquí) */
 .site-header{
-  background:var(--red);
-  color:#fff;
-  text-align:center;
-  padding: 1.6rem 1rem 1.3rem;
-  position:relative;
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 1.6rem 1rem 1.4rem;
+  position: relative;
 }
 
 .site-header::after{
   content:"";
-  position:absolute;
-  left:0; right:0; bottom:0;
-  height: 12px;              /* franja verde */
-  background: var(--green);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 10px;              /* franja */
+  background: var(--accent2);
 }
 
 .site-header h1{
-  margin:0;
-  font-size: 3rem;           /* grande como Madagascar */
+  margin: 0;
+  font-size: 3rem;
   font-weight: 800;
-  letter-spacing:.5px;
+  letter-spacing: .5px;
+}
+
+/* contenedor centrado */
+.page{
+  max-width: var(--max);
+  margin: 0 auto;
 }
 
 /* HERO */
 .hero{
-  position:relative;
+  position: relative;
+  overflow: hidden; /* importante para overlay */
 }
 
+/* imagen responsiva */
 .hero picture,
 .hero img{
   display:block;
@@ -58,120 +69,118 @@ body{
   height:auto;
 }
 
-/* FOOTER: rojo (sin franja extra abajo, el ejemplo solo muestra bloque rojo) */
-.site-footer{
-  background: var(--red);
-  color:#fff;
-  text-align:center;
-  padding: 1.25rem 1rem;
-}
-
-.site-footer p{
-  margin:.25rem 0;
-}
-
-/* ===== Cards ===== */
-
-/* Mobile (stack): debajo de la imagen */
+/* Cards default (mobile: apiladas) */
 .cards{
-  display:grid;
+  display: grid;
   gap: 1rem;
   padding: 1rem;
+  background: transparent;
 }
 
-/* Tarjeta */
+/* Card “glass” */
 .card{
-  background: var(--card);
-  border: var(--border);
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   box-shadow: var(--shadow);
-  border-radius: 2px;        /* Madagascar se ve casi cuadrado */
-  padding: 3.1rem 1.1rem 1.1rem; /* espacio arriba para la etiqueta verde */
-  position:relative;
-  overflow:hidden;
+  padding: 2.4rem 1.1rem 1rem; /* espacio para etiqueta */
 }
 
-/* Etiqueta verde (banda) - NO full width, como “tag” */
-.card-title{
-  position:absolute;
-  top: 10px;
-  left: 10px;
-  margin:0;
-  background: var(--green);
-  color:#fff;
+/* Etiqueta verde: NO a todo el ancho. Como “tag” */
+.card h2{
+  position: absolute;
+  top: .85rem;
+  left: .9rem;
+  margin: 0;
+  padding: .55rem .9rem;
+  background: rgba(0,107,63,.92);
+  color: #fff;
   font-size: 1.35rem;
   font-weight: 800;
-  padding: .55rem .85rem;
-  min-width: 55%;
-  box-shadow: 0 8px 16px rgba(0,0,0,.18);
+  letter-spacing: .2px;
+  box-shadow: 0 10px 18px rgba(0,0,0,.18);
 }
 
-/* Layout Label/Value */
+/* key-value list (dl) */
 .kv{
-  margin:0;
-  display:grid;
-  gap:.35rem;
-}
-
-.kv > div{
-  display:grid;
+  margin: 0;
+  display: grid;
   grid-template-columns: 1fr auto;
-  gap: .75rem;
-  align-items:baseline;
+  column-gap: 1rem;
+  row-gap: .45rem;
+  align-items: baseline;
+  font-size: .98rem;
 }
 
 .kv dt{
-  margin:0;
+  margin: 0;
   font-weight: 700;
   color: var(--muted);
 }
 
 .kv dd{
-  margin:0;
-  text-align:right;
+  margin: 0;
+  text-align: right;
 }
 
-/* Icono clima solo en mobile */
+/* Icono weather (solo mobile) */
 .weather-icon{
-  display:block;
-  width: 46px;
-  height: 46px;
-  margin: .35rem auto .75rem;
+  display: block;
+  margin: .2rem auto .85rem;
+  width: 42px;
+  height: 42px;
 }
 
-/* ===== Wide view: tarjetas encima del hero, pequeñas y centradas ===== */
+/* FOOTER rojo (sin franja verde) */
+.site-footer{
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 1rem 1.4rem;
+}
+
+.site-footer p{
+  margin: .25rem 0;
+}
+
+/* WIDE VIEW: cards sobre la foto, como Madagascar */
 @media (min-width: 800px){
-
-  /* IMPORTANTE: evita “espacios raros” y hace que el overlay sea exacto */
-  .hero{
-    overflow:hidden;
-  }
-
   .cards{
-    position:absolute;
-    inset:0;
-    padding: 1.25rem;
-    display:grid;
-    grid-template-columns: 260px 1fr 260px; /* tamaño similar a Madagascar */
-    grid-template-areas: "data . weather";
-    align-items:center;
-    gap: 1.25rem;
+    position: absolute;
+    inset: 0;
+    padding: 0;          /* sin padding para que no “empuje” */
+    background: transparent;
+    display: block;      /* vamos a posicionar las cards manualmente */
   }
 
-  .data{ grid-area:data; justify-self:start; }
-  .weather{ grid-area:weather; justify-self:end; }
-
-  /* El ejemplo se ve un poco más “glass” */
+  /* tamaño parecido al ejemplo */
   .card{
-    background: rgba(255,255,255,.62);
-    backdrop-filter: blur(2px);
+    width: 280px;
+    padding: 2.4rem 1.0rem 1rem;
   }
 
-  /* En wide no se usa el SVG; se usa pseudo-element después del heading */
-  .weather-icon{ display:none; }
+  /* Data izquierda */
+  .card.data{
+    position: absolute;
+    left: 24px;
+    top: 110px;
+  }
+
+  /* Weather derecha */
+  .card.weather{
+    position: absolute;
+    right: 24px;
+    top: 170px;
+    width: 300px;
+  }
+
+  /* En wide NO se usa el SVG, se usa pseudo-element con emoji */
+  .weather-icon{ display: none; }
 
   .weather-title::after{
-    content:"  ⛅";
+    content: "  ⛅";
     font-size: 1.05em;
-    margin-left: .25rem;
+    margin-left: .35rem;
   }
 }
+
