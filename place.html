@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Osaka, Japan</title>
-  <meta name="description" content="A place page featuring data and weather for Osaka, Japan." />
+  <meta name="description" content="Place page featuring place data and weather." />
 
   <link rel="stylesheet" href="styles/place.css" />
   <script src="scripts/place.js" defer></script>
@@ -15,65 +15,50 @@
     <h1>Osaka, Japan</h1>
   </header>
 
-  <main>
+  <main class="page">
     <section class="hero" aria-label="Hero image with place information">
       <picture>
         <source type="image/webp" srcset="images/hero-large.webp" media="(min-width: 1000px)" />
         <source type="image/webp" srcset="images/hero-medium.webp" media="(min-width: 600px)" />
-        <img
-          src="images/hero-small.webp"
-          alt="Osaka Castle in Osaka, Japan"
-          width="1500"
-          height="750"
-          loading="lazy"
-        />
+        <img src="images/hero-small.webp" alt="Osaka Castle in Osaka, Japan" width="1500" height="750" />
       </picture>
 
       <section class="card data" aria-label="Place data">
-        <h2 class="tag">Data</h2>
-
-        <ul class="facts">
-          <li><span class="label">Area:</span> <span class="value">225.21 km²</span></li>
-          <li><span class="label">Population:</span> <span class="value">2.75M</span></li>
-          <li><span class="label">Capital:</span> <span class="value">Osaka</span></li>
-          <li><span class="label">Languages:</span> <span class="value">Japanese</span></li>
-          <li><span class="label">Currency:</span> <span class="value">JPY (¥)</span></li>
-          <li><span class="label">Time Zone:</span> <span class="value">UTC+9</span></li>
-          <li><span class="label">Calling Code:</span> <span class="value">+81</span></li>
-          <li><span class="label">Internet TLD:</span> <span class="value">.jp</span></li>
+        <h2>Data</h2>
+        <ul class="data-list">
+          <li><span class="k">Area:</span><span class="v">225.21 km²</span></li>
+          <li><span class="k">Population:</span><span class="v">2.75M</span></li>
+          <li><span class="k">Capital:</span><span class="v">Osaka</span></li>
+          <li><span class="k">Languages:</span><span class="v">Japanese</span></li>
+          <li><span class="k">Currency:</span><span class="v">JPY (¥)</span></li>
+          <li><span class="k">Time Zone:</span><span class="v">UTC+9</span></li>
+          <li><span class="k">Calling Code:</span><span class="v">+81</span></li>
+          <li><span class="k">Internet TLD:</span><span class="v">.jp</span></li>
         </ul>
       </section>
 
       <section class="card weather" aria-label="Weather information">
-        <h2 class="tag weather-title">Weather</h2>
+        <h2 class="weather-title">Weather</h2>
 
-        <!-- MOBILE: required SVG icon -->
-        <img
-          class="weather-icon"
-          src="images/weather.svg"
-          alt="Partly cloudy"
-          width="42"
-          height="42"
-          loading="lazy"
-        />
+        <!-- Mobile view icon (SVG required by assignment) -->
+        <img class="weather-icon" src="images/weather.svg" alt="Partly cloudy icon" width="64" height="64" />
 
-        <ul class="facts">
-          <li><span class="label">Temperature:</span> <span class="value"><span id="temp">10</span> °C</span></li>
-          <li><span class="label">Conditions:</span> <span class="value">Partly Cloudy</span></li>
-          <li><span class="label">Wind:</span> <span class="value"><span id="wind">5</span> km/h</span></li>
-          <li><span class="label">Wind Chill:</span> <span class="value"><span id="windchill">N/A</span></span></li>
+        <ul class="weather-list">
+          <li><span class="k">Temperature:</span><span class="v"><span id="temp">10</span> °C</span></li>
+          <li><span class="k">Conditions:</span><span class="v">Partly Cloudy</span></li>
+          <li><span class="k">Wind:</span><span class="v"><span id="wind">5</span> km/h</span></li>
+          <li><span class="k">Wind Chill:</span><span class="v"><span id="windchill">N/A</span></span></li>
         </ul>
       </section>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="currentyear"></span> Cristian Cantera Inafuku &nbsp;|&nbsp; Osaka, Japan</p>
+    <p>&copy; <span id="currentyear"></span> Cristian Cantera Inafuku | Osaka, Japan</p>
     <p>Last Modification: <span id="lastmodified"></span></p>
   </footer>
 </body>
 </html>
-
 
 
 
