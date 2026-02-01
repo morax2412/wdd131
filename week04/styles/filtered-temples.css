@@ -52,6 +52,7 @@ nav a:focus {
   background-color: #1c2541;
 }
 
+/* Accesibilidad: outline solo cuando es teclado */
 nav a:focus-visible {
   outline: 3px solid #ffffff;
   outline-offset: 2px;
@@ -116,8 +117,12 @@ main h1 {
 .card img {
   display: block;
   margin: 0.75rem auto 0;
-  max-width: 100%;
-  height: auto;
+
+  /* Esto evita “cuadros negros” y deja todas iguales */
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+
   border-radius: 6px;
   background-color: #000;
 
@@ -132,6 +137,7 @@ main h1 {
   }
 }
 
+/* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   .card img {
     animation: none;
@@ -168,4 +174,3 @@ footer p {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-

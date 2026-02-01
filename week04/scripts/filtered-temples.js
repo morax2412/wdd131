@@ -59,14 +59,16 @@ const temples = [
       "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg",
   },
 
-  // Added 3+
+  // ------------------------------
+  // Added temples (fixed working image URLs)
+  // ------------------------------
   {
     templeName: "Laie Hawaii",
     location: "Laie, Hawaii, United States",
     dedicated: "1919, November, 27",
     area: 42100,
     imageUrl:
-      "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/laie-hawaii/400x250/laie-hawaii-temple-lds-617475-wallpaper.jpg",
+      "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/laie-hawaii/800x1280/hawaii-temple-761091-wallpaper.jpg",
   },
   {
     templeName: "Sapporo Japan",
@@ -100,51 +102,45 @@ function formatArea(areaNumber) {
 }
 
 // ------------------------------
-// Create ONE card (DOM)
+// Create ONE card
 // ------------------------------
 function createTempleCard(temple) {
-  const fallbackUrl = "https://placehold.co/400x250?text=Image+Unavailable";
+  return `
+    <section class="card">
+      <h2>${temple.templeName}</h2>
+      <p><span class="label">Location:</span> ${temple.location}</p>
+      <p><span class="label">Dedicated:</span> ${temple.dedicated}</p>
+      <p><span class="label">Size:</span> ${formatArea(temple.area)}</p>
 
-  const card = document.createElement("section");
-  card.classList.add("card");
-
-  const h2 = document.createElement("h2");
-  h2.textContent = temple.templeName;
-
-  const pLoc = document.createElement("p");
-  pLoc.innerHTML = `<span class="label">Location:</span> ${temple.location}`;
-
-  const pDed = document.createElement("p");
-  pDed.innerHTML = `<span class="label">Dedicated:</span> ${temple.dedicated}`;
-
-  const pSize = document.createElement("p");
-  pSize.innerHTML = `<span class="label">Size:</span> ${formatArea(temple.area)}`;
-
-  const img = document.createElement("img");
-  img.src = temple.imageUrl;
-  img.alt = temple.templeName;
-  img.loading = "lazy";
-  img.width = 400;
-  img.height = 250;
-
-  // if image fails, swap to fallback
-  img.addEventListener("error", () => {
-    img.src = fallbackUrl;
-  });
-
-  card.append(h2, pLoc, pDed, pSize, img);
-  return card;
+      <img
+        src="${temple.imageUrl}"
+        alt="${temple.templeName}"
+        loading="lazy"
+        width="400"
+        height="250"
+      >
+    </section>
+  `;
 }
 
 // ------------------------------
-// Render cards
+// Render cards to the DOM
 // ------------------------------
 function displayTemples(templeList) {
   const container = document.querySelector("#temple-cards");
-  container.innerHTML = "";
+  if (!container) return;
 
-  templeList.forEach((temple) => {
-    container.appendChild(createTempleCard(temple));
+  container.innerHTML = templeList.map(createTempleCard).join("");
+
+  // Fallback por si alguna imagen falla (sin usar onerror inline)
+  container.querySelectorAll("img").forEach((img) => {
+    img.addEventListener(
+      "error",
+      () => {
+        img.src = "https://placehold.co/400x250?text=Image+Unavailable";
+      },
+      { once: true }
+    );
   });
 }
 
@@ -152,23 +148,18 @@ function displayTemples(templeList) {
 // Filtering logic
 // ------------------------------
 function filterTemples(filterName) {
-  if (filterName === "old") {
-    return temples.filter((t) => getDedicatedYear(t.dedicated) < 1900);
+  switch (filterName) {
+    case "old":
+      return temples.filter((t) => getDedicatedYear(t.dedicated) < 1900);
+    case "new":
+      return temples.filter((t) => getDedicatedYear(t.dedicated) > 2000);
+    case "large":
+      return temples.filter((t) => t.area > 90000);
+    case "small":
+      return temples.filter((t) => t.area < 10000);
+    default:
+      return temples; // home
   }
-
-  if (filterName === "new") {
-    return temples.filter((t) => getDedicatedYear(t.dedicated) > 2000);
-  }
-
-  if (filterName === "large") {
-    return temples.filter((t) => t.area > 90000);
-  }
-
-  if (filterName === "small") {
-    return temples.filter((t) => t.area < 10000);
-  }
-
-  return temples; // home
 }
 
 // ------------------------------
@@ -176,10 +167,9 @@ function filterTemples(filterName) {
 // ------------------------------
 function setActiveLink(filterName) {
   const links = document.querySelectorAll("nav a[data-filter]");
-  links.forEach((link) => link.classList.remove("active"));
-
-  const active = document.querySelector(`nav a[data-filter="${filterName}"]`);
-  if (active) active.classList.add("active");
+  links.forEach((link) => {
+    link.classList.toggle("active", link.dataset.filter === filterName);
+  });
 }
 
 // ------------------------------
@@ -194,27 +184,19 @@ function setFooterDates() {
 }
 
 // ------------------------------
-// LocalStorage
-// ------------------------------
-function saveFilter(filterName) {
-  localStorage.setItem("templeFilter", filterName);
-}
-
-function loadFilter() {
-  return localStorage.getItem("templeFilter") || "home";
-}
-
-// ------------------------------
 // Init
 // ------------------------------
 function init() {
   setFooterDates();
 
-  const startFilter = loadFilter();
-  displayTemples(filterTemples(startFilter));
-  setActiveLink(startFilter);
+  // Initial render
+  displayTemples(temples);
+  setActiveLink("home");
 
+  // Event delegation for nav clicks
   const nav = document.querySelector("nav");
+  if (!nav) return;
+
   nav.addEventListener("click", (event) => {
     const link = event.target.closest("a[data-filter]");
     if (!link) return;
@@ -224,7 +206,6 @@ function init() {
     const filterName = link.dataset.filter;
     displayTemples(filterTemples(filterName));
     setActiveLink(filterName);
-    saveFilter(filterName);
   });
 }
 
