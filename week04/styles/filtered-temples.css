@@ -1,6 +1,3 @@
-/* ---------------------------
-   Base / Reset
----------------------------- */
 *,
 *::before,
 *::after {
@@ -15,9 +12,7 @@ body {
   background-color: #f5f5f5;
 }
 
-/* ---------------------------
-   Header & Navigation
----------------------------- */
+/* Header */
 header {
   background-color: #0b132b;
   color: #ffffff;
@@ -30,19 +25,19 @@ header {
   margin: 0;
 }
 
+/* Navigation */
 nav ul {
   list-style: none;
   padding: 0;
   margin: 1rem 0 0;
   display: flex;
-  flex-wrap: wrap;
   gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: #ffffff;
   text-decoration: none;
-  font-weight: 500;
   padding: 0.4rem 0.75rem;
   border-radius: 4px;
 }
@@ -52,117 +47,47 @@ nav a:focus {
   background-color: #1c2541;
 }
 
-/* Accesibilidad: outline solo cuando es teclado */
-nav a:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 2px;
-}
-
 nav a.active {
   background-color: #3a86ff;
 }
 
-/* ---------------------------
-   Main Content
----------------------------- */
+/* Main */
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem 1rem 2.5rem;
+  padding: 1.5rem;
 }
 
-main h1 {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-/* ---------------------------
-   Temple Cards Grid
----------------------------- */
 .cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
-/* ---------------------------
-   Individual Card
----------------------------- */
+/* Card */
 .card {
-  background-color: #ffffff;
+  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
 }
 
-.card h2 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
-}
-
-.card p {
-  margin: 0.25rem 0;
-  font-size: 0.95rem;
-}
-
-.card .label {
-  font-weight: 700;
-}
-
-/* ---------------------------
-   Card Images
----------------------------- */
 .card img {
-  display: block;
-  margin: 0.75rem auto 0;
-
-  /* Esto evita “cuadros negros” y deja todas iguales */
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-
+  max-width: 100%;
   border-radius: 6px;
-  background-color: #000;
-
-  /* Fade-in animation */
-  opacity: 0;
-  animation: fadein 1.2s ease forwards;
+  margin-top: 0.75rem;
 }
 
-@keyframes fadein {
-  to {
-    opacity: 1;
-  }
-}
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  .card img {
-    animation: none;
-    opacity: 1;
-  }
-}
-
-/* ---------------------------
-   Footer
----------------------------- */
+/* Footer */
 footer {
   background-color: #0b132b;
   color: #ffffff;
   text-align: center;
   padding: 1rem;
-  font-size: 0.9rem;
 }
 
-footer p {
-  margin: 0.25rem 0;
-}
-
-/* ---------------------------
-   Responsive Layout
----------------------------- */
+/* Responsive */
 @media (min-width: 600px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
