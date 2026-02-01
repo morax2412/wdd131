@@ -1,5 +1,5 @@
 // ------------------------------
-// Temple Data (Provided + 3 added)
+// Temple Data
 // ------------------------------
 const temples = [
   {
@@ -59,9 +59,7 @@ const temples = [
       "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg",
   },
 
-  // ------------------------------
-  // Added temples (fixed working image URLs)
-  // ------------------------------
+  // Added 3+
   {
     templeName: "Laie Hawaii",
     location: "Laie, Hawaii, United States",
@@ -92,7 +90,6 @@ const temples = [
 // Helpers
 // ------------------------------
 function getDedicatedYear(dedicatedString) {
-  // "1888, May, 21" -> 1888
   const year = Number(dedicatedString.split(",")[0]);
   return Number.isNaN(year) ? 0 : year;
 }
@@ -102,7 +99,7 @@ function formatArea(areaNumber) {
 }
 
 // ------------------------------
-// Create ONE card
+// Create card (NO inline JS)
 // ------------------------------
 function createTempleCard(temple) {
   return `
@@ -118,25 +115,27 @@ function createTempleCard(temple) {
         loading="lazy"
         width="400"
         height="250"
+        data-fallback="true"
       >
     </section>
   `;
 }
 
 // ------------------------------
-// Render cards to the DOM
+// Render cards to DOM
+// + attach fallback handlers
 // ------------------------------
-function displayTemples(templeList) {
+function displayTemples(list) {
   const container = document.querySelector("#temple-cards");
-  if (!container) return;
+  container.innerHTML = list.map(createTempleCard).join("");
 
-  container.innerHTML = templeList.map(createTempleCard).join("");
-
-  // Fallback por si alguna imagen falla (sin usar onerror inline)
-  container.querySelectorAll("img").forEach((img) => {
+  // fallback if image fails
+  const imgs = container.querySelectorAll('img[data-fallback="true"]');
+  imgs.forEach((img) => {
     img.addEventListener(
       "error",
       () => {
+        img.removeAttribute("data-fallback");
         img.src = "https://placehold.co/400x250?text=Image+Unavailable";
       },
       { once: true }
@@ -148,27 +147,19 @@ function displayTemples(templeList) {
 // Filtering logic
 // ------------------------------
 function filterTemples(filterName) {
-  switch (filterName) {
-    case "old":
-      return temples.filter((t) => getDedicatedYear(t.dedicated) < 1900);
-    case "new":
-      return temples.filter((t) => getDedicatedYear(t.dedicated) > 2000);
-    case "large":
-      return temples.filter((t) => t.area > 90000);
-    case "small":
-      return temples.filter((t) => t.area < 10000);
-    default:
-      return temples; // home
-  }
+  if (filterName === "old") return temples.filter((t) => getDedicatedYear(t.dedicated) < 1900);
+  if (filterName === "new") return temples.filter((t) => getDedicatedYear(t.dedicated) > 2000);
+  if (filterName === "large") return temples.filter((t) => t.area > 90000);
+  if (filterName === "small") return temples.filter((t) => t.area < 10000);
+  return temples; // home
 }
 
 // ------------------------------
 // Nav active state
 // ------------------------------
 function setActiveLink(filterName) {
-  const links = document.querySelectorAll("nav a[data-filter]");
-  links.forEach((link) => {
-    link.classList.toggle("active", link.dataset.filter === filterName);
+  document.querySelectorAll("nav a[data-filter]").forEach((a) => {
+    a.classList.toggle("active", a.dataset.filter === filterName);
   });
 }
 
@@ -178,7 +169,6 @@ function setActiveLink(filterName) {
 function setFooterDates() {
   const yearEl = document.querySelector("#year");
   const modEl = document.querySelector("#lastModified");
-
   if (yearEl) yearEl.textContent = new Date().getFullYear();
   if (modEl) modEl.textContent = document.lastModified;
 }
@@ -189,14 +179,10 @@ function setFooterDates() {
 function init() {
   setFooterDates();
 
-  // Initial render
   displayTemples(temples);
   setActiveLink("home");
 
-  // Event delegation for nav clicks
   const nav = document.querySelector("nav");
-  if (!nav) return;
-
   nav.addEventListener("click", (event) => {
     const link = event.target.closest("a[data-filter]");
     if (!link) return;
@@ -210,4 +196,3 @@ function init() {
 }
 
 init();
-

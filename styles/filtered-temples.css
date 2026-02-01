@@ -12,7 +12,6 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Header */
 header {
   background-color: #0b132b;
   color: #ffffff;
@@ -25,19 +24,19 @@ header {
   margin: 0;
 }
 
-/* Navigation */
 nav ul {
   list-style: none;
   padding: 0;
   margin: 1rem 0 0;
   display: flex;
-  gap: 0.75rem;
   flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 nav a {
   color: #ffffff;
   text-decoration: none;
+  font-weight: 500;
   padding: 0.4rem 0.75rem;
   border-radius: 4px;
 }
@@ -47,15 +46,24 @@ nav a:focus {
   background-color: #1c2541;
 }
 
+nav a:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
 nav a.active {
   background-color: #3a86ff;
 }
 
-/* Main */
 main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1.5rem 1rem 2.5rem;
+}
+
+main h1 {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .cards {
@@ -64,38 +72,69 @@ main {
   gap: 1.5rem;
 }
 
-/* Card */
 .card {
-  background: #fff;
+  background-color: #ffffff;
   border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,.1);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.card .label {
+  font-weight: 700;
 }
 
 .card img {
-  max-width: 100%;
+  display: block;
+  margin: 0.75rem auto 0;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
   border-radius: 6px;
-  margin-top: 0.75rem;
+  background-color: #000;
+
+  opacity: 0;
+  animation: fadein 1.2s ease forwards;
 }
 
-/* Footer */
+@keyframes fadein {
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card img {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 footer {
   background-color: #0b132b;
   color: #ffffff;
   text-align: center;
   padding: 1rem;
+  font-size: 0.9rem;
 }
 
-/* Responsive */
+footer p {
+  margin: 0.25rem 0;
+}
+
 @media (min-width: 600px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .cards { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 900px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .cards { grid-template-columns: repeat(3, 1fr); }
 }
