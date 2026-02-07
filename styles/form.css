@@ -1,0 +1,277 @@
+
+:root{
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+
+  --primary: #2b0a2e; /* deep purple */
+  --primary-2: #3b0d40;
+  --accent: #7c3aed;
+
+  --border: #e5e7eb;
+  --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+
+  --radius: 14px;
+  --space: 1rem;
+
+  --focus: 0 0 0 4px rgba(124,58,237,.25);
+}
+
+/* --- Global reset-ish --- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* --- Layout helpers --- */
+.wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2rem;
+}
+
+.page-title{
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 1.25rem 0 1rem;
+  letter-spacing: .2px;
+}
+
+/* --- Form card --- */
+.form-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* --- Form header strip --- */
+.form-header{
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  padding: 1rem 1rem;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: .3px;
+}
+
+/* --- Form body --- */
+form{
+  padding: 1rem;
+}
+
+fieldset{
+  border: 0;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+legend{
+  font-weight: 800;
+  margin: 0 0 .5rem;
+  font-size: .95rem;
+}
+
+label{
+  display: block;
+  font-weight: 700;
+  font-size: .9rem;
+  margin: 0 0 .35rem;
+}
+
+.help{
+  font-size: .85rem;
+  color: var(--muted);
+  margin: 0 0 .5rem;
+}
+
+.req{
+  color: #b91c1c;
+  font-weight: 900;
+  margin-left: .25rem;
+}
+
+/* --- Inputs --- */
+input[type="text"],
+input[type="date"],
+select,
+textarea{
+  width: 100%;
+  padding: .7rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+}
+
+textarea{
+  min-height: 140px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color: rgba(124,58,237,.65);
+  box-shadow: var(--focus);
+}
+
+/* show required fields nicely */
+input:required:invalid,
+select:required:invalid{
+  border-color: rgba(185, 28, 28, .55);
+}
+
+/* --- Rating --- */
+.rating-field{ margin-top: .5rem; }
+
+.rating{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: center;
+}
+
+/* Each option as a chip */
+.rating label{
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .45rem .6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fafafa;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 700;
+  margin: 0; /* override default label margin */
+}
+
+/* radio size */
+.rating input[type="radio"]{
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+}
+
+/* Stars text */
+.rating span{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  letter-spacing: 1px;
+}
+
+/* selected state using :has if supported; safe fallback still looks ok */
+.rating label:has(input:checked){
+  border-color: rgba(124,58,237,.55);
+  background: rgba(124,58,237,.10);
+}
+
+/* --- Checkboxes --- */
+.checks{
+  display: grid;
+  gap: .55rem;
+  margin-top: .35rem;
+}
+
+.checks label{
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: .6rem .7rem;
+  background: #fafafa;
+  cursor: pointer;
+  margin: 0;
+  font-weight: 700;
+}
+
+.checks input[type="checkbox"]{
+  width: 1.05rem;
+  height: 1.05rem;
+  margin: 0;
+}
+
+/* --- Submit button --- */
+.actions{
+  margin-top: 1rem;
+}
+
+button[type="submit"],
+input[type="submit"]{
+  width: 100%;
+  padding: .85rem 1rem;
+  border: 0;
+  border-radius: 12px;
+  background: #e5e7eb;
+  color: #111827;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+}
+
+button[type="submit"]:hover,
+input[type="submit"]:hover{
+  background: #dfe3ea;
+}
+
+button[type="submit"]:active,
+input[type="submit"]:active{
+  transform: translateY(1px);
+}
+
+button[type="submit"]:focus-visible,
+input[type="submit"]:focus-visible{
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+/* --- Footer (common assignment footer style) --- */
+.site-footer{
+  margin-top: 1.25rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.site-footer p{
+  margin: .25rem 0;
+  font-size: .9rem;
+}
+
+.site-footer a{
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* --- Review page counter block (optional) --- */
+.counter{
+  margin-top: .75rem;
+  padding: .9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.counter strong{ font-weight: 900; }
+
+/* --- Utility --- */
+.mt-sm{ margin-top: .5rem; }
+

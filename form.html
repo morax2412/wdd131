@@ -9,7 +9,9 @@
  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/large.css" />
+  <link rel="stylesheet" href="styles/form.css">
+<link rel="stylesheet" href="styles/form-large.css">
+
 
   <script src="scripts/main.js" defer></script>
 </head>
@@ -37,37 +39,37 @@
         </div>
 
         <!-- Overall Rating -->
-        <fieldset class="field">
-          <legend>Overall Rating</legend>
+       <fieldset class="rating-field">
+  <legend>Overall Rating <span class="req">*</span></legend>
 
-          <div class="rating" aria-label="Overall rating from 1 to 5">
-            <!-- IMPORTANT: same name="rating" for all radios -->
-            <div class="rating-item">
-              <input type="radio" id="rate1" name="rating" value="1" required />
-              <label for="rate1" title="1 star">★</label>
-            </div>
+  <div class="rating">
+    <label for="rate1" title="1 star">
+      <input type="radio" id="rate1" name="rating" value="1" required>
+      <span aria-hidden="true">☆</span>
+    </label>
 
-            <div class="rating-item">
-              <input type="radio" id="rate2" name="rating" value="2" />
-              <label for="rate2" title="2 stars">★★</label>
-            </div>
+    <label for="rate2" title="2 stars">
+      <input type="radio" id="rate2" name="rating" value="2" required>
+      <span aria-hidden="true">☆☆</span>
+    </label>
 
-            <div class="rating-item">
-              <input type="radio" id="rate3" name="rating" value="3" />
-              <label for="rate3" title="3 stars">★★★</label>
-            </div>
+    <label for="rate3" title="3 stars">
+      <input type="radio" id="rate3" name="rating" value="3" required>
+      <span aria-hidden="true">☆☆☆</span>
+    </label>
 
-            <div class="rating-item">
-              <input type="radio" id="rate4" name="rating" value="4" />
-              <label for="rate4" title="4 stars">★★★★</label>
-            </div>
+    <label for="rate4" title="4 stars">
+      <input type="radio" id="rate4" name="rating" value="4" required>
+      <span aria-hidden="true">☆☆☆☆</span>
+    </label>
 
-            <div class="rating-item">
-              <input type="radio" id="rate5" name="rating" value="5" />
-              <label for="rate5" title="5 stars">★★★★★</label>
-            </div>
-          </div>
-        </fieldset>
+    <label for="rate5" title="5 stars">
+      <input type="radio" id="rate5" name="rating" value="5" required>
+      <span aria-hidden="true">☆☆☆☆☆</span>
+    </label>
+  </div>
+</fieldset>
+
 
         <!-- Date of Installation -->
         <div class="field">
@@ -76,31 +78,32 @@
         </div>
 
         <!-- Useful Features -->
-        <fieldset class="field">
-          <legend>Which features did you find useful in the product? <span class="hint">(Check all that apply)</span></legend>
+        <fieldset class="features-field">
+  <legend>Useful Features</legend>
 
-          <div class="checks">
-            <label class="check">
-              <input type="checkbox" id="durability" name="features" value="Durability" />
-              <span>Durability</span>
-            </label>
+  <div class="checks">
+    <label for="durability">
+      <input type="checkbox" id="durability" name="features" value="durability">
+      Durability
+    </label>
 
-            <label class="check">
-              <input type="checkbox" id="ease" name="features" value="Ease of Use" />
-              <span>Ease of Use</span>
-            </label>
+    <label for="ease">
+      <input type="checkbox" id="ease" name="features" value="ease">
+      Ease of Use
+    </label>
 
-            <label class="check">
-              <input type="checkbox" id="performance" name="features" value="Performance" />
-              <span>Performance</span>
-            </label>
+    <label for="performance">
+      <input type="checkbox" id="performance" name="features" value="performance">
+      Performance
+    </label>
 
-            <label class="check">
-              <input type="checkbox" id="design" name="features" value="Design" />
-              <span>Design</span>
-            </label>
-          </div>
-        </fieldset>
+    <label for="design">
+      <input type="checkbox" id="design" name="features" value="design">
+      Design
+    </label>
+  </div>
+</fieldset>
+
 
         <!-- Written Review -->
         <div class="field">
