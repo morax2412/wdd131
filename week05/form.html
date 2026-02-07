@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Cristian Cantera Inafuku" />
+  <meta name="description" content="Product review form page for WDD 131 W05 assignment." />
+  <title>Product Review Form</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/large.css" />
+
+  <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Product Review</h1>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2 class="sr-only">Review Form</h2>
+
+      <!-- Must be GET + action review.html -->
+      <form class="review-form" method="get" action="review.html">
+        <!-- Product Name -->
+        <div class="field">
+          <label for="productName">Product Name</label>
+          <select id="productName" name="productName" required>
+            <option value="" disabled selected>Select a Product ...</option>
+            <!-- Options injected by JS -->
+          </select>
+        </div>
+
+        <!-- Overall Rating -->
+        <fieldset class="field">
+          <legend>Overall Rating</legend>
+
+          <div class="rating" aria-label="Overall rating from 1 to 5">
+            <!-- IMPORTANT: same name="rating" for all radios -->
+            <div class="rating-item">
+              <input type="radio" id="rate1" name="rating" value="1" required />
+              <label for="rate1" title="1 star">★</label>
+            </div>
+
+            <div class="rating-item">
+              <input type="radio" id="rate2" name="rating" value="2" />
+              <label for="rate2" title="2 stars">★★</label>
+            </div>
+
+            <div class="rating-item">
+              <input type="radio" id="rate3" name="rating" value="3" />
+              <label for="rate3" title="3 stars">★★★</label>
+            </div>
+
+            <div class="rating-item">
+              <input type="radio" id="rate4" name="rating" value="4" />
+              <label for="rate4" title="4 stars">★★★★</label>
+            </div>
+
+            <div class="rating-item">
+              <input type="radio" id="rate5" name="rating" value="5" />
+              <label for="rate5" title="5 stars">★★★★★</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Date of Installation -->
+        <div class="field">
+          <label for="installDate">Date of Installation</label>
+          <input type="date" id="installDate" name="installDate" required />
+        </div>
+
+        <!-- Useful Features -->
+        <fieldset class="field">
+          <legend>Which features did you find useful in the product? <span class="hint">(Check all that apply)</span></legend>
+
+          <div class="checks">
+            <label class="check">
+              <input type="checkbox" id="durability" name="features" value="Durability" />
+              <span>Durability</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" id="ease" name="features" value="Ease of Use" />
+              <span>Ease of Use</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" id="performance" name="features" value="Performance" />
+              <span>Performance</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" id="design" name="features" value="Design" />
+              <span>Design</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Written Review -->
+        <div class="field">
+          <label for="writtenReview">Written Review <span class="hint">(Optional)</span></label>
+          <textarea id="writtenReview" name="writtenReview" rows="5"></textarea>
+        </div>
+
+        <!-- User Name -->
+        <div class="field">
+          <label for="userName">Your Name <span class="hint">(Optional)</span></label>
+          <input type="text" id="userName" name="userName" autocomplete="name" />
+        </div>
+
+        <button type="submit" class="btn">Post Review</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <p>&copy; <span id="year"></span> Cristian Cantera Inafuku</p>
+      <p>Last Modification: <span id="lastModified"></span></p>
+    </div>
+  </footer>
+</body>
+</html>
