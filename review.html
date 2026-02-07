@@ -7,13 +7,16 @@
   <meta name="description" content="Review confirmation page showing total number of submitted reviews." />
   <title>Review Submitted</title>
 
+  <!-- Fonts (match form.html) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="styles/form.css">
-<link rel="stylesheet" href="styles/form-large.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/form.css" />
+  <link rel="stylesheet" href="styles/form-large.css" />
 
+  <!-- JS -->
   <script src="scripts/main.js" defer></script>
 </head>
 
@@ -29,10 +32,10 @@
       <h2>Thank you!</h2>
       <p>Your product review has been submitted successfully.</p>
 
-      <div class="counter">
-        <p class="counter-label">Total Reviews Completed</p>
-        <p class="counter-number" id="reviewCount">0</p>
-      </div>
+      <!-- Counter (audit-friendly) -->
+      <p class="counter-text">
+        You have completed <strong><span id="reviewCount">0</span></strong> reviews.
+      </p>
 
       <a class="btn btn-link" href="form.html">Submit Another Review</a>
     </section>

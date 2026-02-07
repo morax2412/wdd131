@@ -17,17 +17,30 @@ function setFooterInfo() {
   if (lastModEl) lastModEl.textContent = document.lastModified;
 }
 
+function toTitleCase(str) {
+  return String(str)
+    .split(" ")
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
 function populateProductsSelect() {
   const select = document.querySelector("#productName");
   if (!select) return;
 
-  // create options dynamically: name shown, id used as value
+  // Prevent duplicates if script runs more than once
+  const existingValues = new Set(
+    [...select.options].map(opt => opt.value)
+  );
+
   const frag = document.createDocumentFragment();
 
   products.forEach((p) => {
+    if (existingValues.has(p.id)) return;
+
     const opt = document.createElement("option");
-    opt.value = p.id;         // requirement: id used for value field
-    opt.textContent = p.name; // requirement: name used for display
+    opt.value = p.id;                   // requirement: id used for value field
+    opt.textContent = toTitleCase(p.name); // requirement: name used for display
     frag.appendChild(opt);
   });
 
@@ -37,6 +50,13 @@ function populateProductsSelect() {
 function updateReviewCounterOnReviewPage() {
   const counterEl = document.querySelector("#reviewCount");
   if (!counterEl) return; // only runs on review.html
+
+  // Only count when page was reached via form submission (query string exists)
+  if (!window.location.search || window.location.search.length < 2) {
+    const current = Number(localStorage.getItem(REVIEW_KEY)) || 0;
+    counterEl.textContent = String(current);
+    return;
+  }
 
   const current = Number(localStorage.getItem(REVIEW_KEY)) || 0;
   const next = current + 1;
