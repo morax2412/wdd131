@@ -1,52 +1,21 @@
+@media (min-width: 760px) {
 
-
-@media (min-width: 760px){
-
-  .wrap{
-    padding: 2rem 1rem 3rem;
+  .wrap {
+    max-width: 900px;
+    padding: 2rem;
   }
 
-  .page-title{
-    font-size: 2rem;
-    margin: 1.5rem 0 1.25rem;
+  form {
+    padding: 2.5rem;
   }
 
-  .form-header{
-    padding: 1.25rem 1rem;
-    font-size: 1.1rem;
+  .rating-group {
+    gap: 1.25rem;
   }
 
-  form{
-    padding: 1.25rem 1.25rem 1.5rem;
-  }
-
-  /* Two-column layout for some fields if you add wrappers */
-  .grid-2{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  /* Rating chips roomier */
-  .rating{
-    gap: .75rem;
-  }
-
-  .rating label{
-    padding: .5rem .75rem;
-  }
-
-  /* Submit button not too tall on desktop */
-  button[type="submit"],
-  input[type="submit"]{
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .site-footer{
-    border-radius: 14px;
+  button[type="submit"] {
+    width: auto;
+    padding: 0.75rem 2.5rem;
+    margin-top: 1rem;
   }
 }
-
