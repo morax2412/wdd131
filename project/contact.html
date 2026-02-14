@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Cristian Cantera Inafuku" />
+  <meta name="description" content="Contact Lic. Daniela Estefany Rondan Suazo to request an appointment or ask a question." />
+
+  <title>Contact | Daniela Rondan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/large.css" />
+
+  <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-flex">
+      <div class="brand">
+        <p class="logo" aria-label="MindCare Psychology">MindCare</p>
+        <p class="tagline">Psychology &amp; Therapy</p>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="page2.html">Services</a></li>
+          <li><a href="page3.html">About</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="maincontent">
+    <section class="page-hero">
+      <div class="wrap">
+        <h1>Contact</h1>
+        <p class="lead">
+          Request an appointment or ask a question. You will receive a reply with available times and next steps.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap two-col">
+        <!-- Contact info -->
+        <div>
+          <h2>Appointment Requests</h2>
+          <p>
+            Please provide your name, email, and a short message. This site stores your name and email in your
+            browser to make the next request faster.
+          </p>
+
+          <ul class="list">
+            <li><strong>Psychologist:</strong> Lic. Daniela Estefany Rondan Suazo</li>
+            <li><strong>Sessions:</strong> Online &amp; In-person</li>
+            <li><strong>Response time:</strong> Within 24–48 hours (example)</li>
+          </ul>
+
+          <h3>Important Note</h3>
+          <p>
+            This contact form is not for emergencies. If you are in immediate danger, contact your local emergency
+            number right away.
+          </p>
+        </div>
+
+        <!-- Form -->
+        <div class="card form-card">
+          <h2>Contact Form</h2>
+
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Full Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email Address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="topic">Topic</label>
+              <select id="topic" name="topic">
+                <option value="appointment">Appointment request</option>
+                <option value="anxiety">Anxiety / stress</option>
+                <option value="relationship">Relationship support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Write a short message..."></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Request</button>
+
+            <!-- JS writes confirmation text here -->
+            <p id="confirmation" class="confirmation" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-flex">
+      <p>&copy; <span id="year"></span> Daniela Rondan | WDD 131</p>
+      <p><a href="references.html">References</a></p>
+      <p>Last Modified: <span id="lastModified"></span></p>
+    </div>
+  </footer>
+</body>
+</html>

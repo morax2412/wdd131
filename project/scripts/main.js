@@ -3,70 +3,54 @@
    (Safe utilities for siteplan)
    =============================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-  setFooterYear();
-  enableSmoothScroll();
-  enableWireframeToggle(); // optional enhancement
-});
+// Object
+// Object
+const psychologist = {
+  name: "Lic. Daniela Estefany Rondan Suazo",
+  specialty: "Anxiety, Emotional Regulation & Relationship Therapy",
+  location: "Online & In-person Sessions",
+  email: "contact@mindcarepsychology.com"
+};
 
-/* 1) Footer year (optional) */
-function setFooterYear() {
-  const yearEl = document.querySelector("#year");
-  if (!yearEl) return;
-  yearEl.textContent = new Date().getFullYear();
-}
+// Array
+const services = [
+  "Anxiety Therapy",
+  "Stress Management",
+  "Couples Counseling",
+  "Self-Esteem Coaching"
+];
 
-/* 2) Smooth scroll for internal anchors */
-function enableSmoothScroll() {
-  const internalLinks = document.querySelectorAll('a[href^="#"]');
+// Function 1
+function displayServices() {
+  const container = document.querySelector("#servicesList");
 
-  internalLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      const targetId = link.getAttribute("href");
-      if (!targetId || targetId === "#") return;
-
-      const target = document.querySelector(targetId);
-      if (!target) return;
-
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.pushState(null, "", targetId);
-    });
+  services.forEach(service => {
+    container.innerHTML += `<li>${service}</li>`;
   });
 }
 
-/* 3) Collapse/expand wireframes (optional)
-   - Click the wireframe title area to toggle the blocks.
-*/
-function enableWireframeToggle() {
-  const wireframes = document.querySelectorAll(".wf");
+// Function 2 (Form + localStorage + conditional)
+function handleForm(event) {
+  event.preventDefault();
 
-  wireframes.forEach((wf) => {
-    const title = wf.querySelector(".wf-title");
-    const boxes = wf.querySelectorAll(".box");
+  const name = document.querySelector("#name").value;
+  const email = document.querySelector("#email").value;
 
-    if (!title || boxes.length === 0) return;
+  if (name === "" || email === "") {
+    alert("Please fill out all required fields.");
+  } else {
+    localStorage.setItem("clientName", name);
+    localStorage.setItem("clientEmail", email);
 
-    // Accessibility-ish
-    title.style.cursor = "pointer";
-    title.setAttribute("role", "button");
-    title.setAttribute("tabindex", "0");
-    title.setAttribute("aria-expanded", "true");
+    document.querySelector("#confirmation").innerHTML =
+      `Thank you, ${name}. Your request has been received.`;
 
-    const toggle = () => {
-      const expanded = title.getAttribute("aria-expanded") === "true";
-      title.setAttribute("aria-expanded", String(!expanded));
-      boxes.forEach((box) => {
-        box.hidden = expanded; // collapse if was expanded
-      });
-    };
-
-    title.addEventListener("click", toggle);
-    title.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggle();
-      }
-    });
-  });
+    event.target.reset();
+  }
 }
+
+// Event listeners
+document.addEventListener("DOMContentLoaded", displayServices);
+
+document.querySelector("#contactForm")
+  ?.addEventListener("submit", handleForm);

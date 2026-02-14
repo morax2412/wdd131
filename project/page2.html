@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Cristian Cantera Inafuku" />
+  <meta name="description" content="MindCare Psychology services offered by Lic. Daniela Estefany Rondan Suazo." />
+
+  <title>Services | Daniela Rondan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/large.css" />
+
+  <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#maincontent">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="wrap header-flex">
+      <div class="brand">
+        <p class="logo" aria-label="MindCare Psychology">MindCare</p>
+        <p class="tagline">Psychology &amp; Therapy</p>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="page2.html">Services</a></li>
+          <li><a href="page3.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="maincontent">
+    <section class="page-hero">
+      <div class="wrap">
+        <h1>Services</h1>
+        <p class="lead">
+          Support designed to help you reduce stress, build emotional tools, and improve relationships.
+          Sessions are available online and (if applicable) in-person.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter (JS requirement: event + DOM + branching) -->
+    <section class="section">
+      <div class="wrap">
+        <h2 class="sr-only">Service Filter</h2>
+
+        <div class="filter-bar" role="group" aria-label="Filter services">
+          <label for="serviceFilter"><strong>Filter:</strong></label>
+          <select id="serviceFilter" name="serviceFilter">
+            <option value="all">All services</option>
+            <option value="individual">Individual</option>
+            <option value="couples">Couples</option>
+            <option value="stress">Stress & Anxiety</option>
+          </select>
+
+          <p class="hint">
+            Tip: choose a category to view the most relevant services.
+          </p>
+        </div>
+
+        <!-- JS will render service cards here using template literals -->
+        <div id="servicesGrid" class="cards" aria-live="polite"></div>
+
+        <p class="section-cta">
+          Ready to start? <a href="contact.html">Request an appointment →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- How it works (real content) -->
+    <section class="section section-alt">
+      <div class="wrap">
+        <h2>How It Works</h2>
+
+        <ol class="steps">
+          <li>
+            <h3>1) Contact</h3>
+            <p>
+              Send a request using the contact form. You will receive a reply with the next available times.
+            </p>
+          </li>
+          <li>
+            <h3>2) First Session</h3>
+            <p>
+              We clarify your goals, main concerns, and context. Together we define priorities and a clear direction.
+            </p>
+          </li>
+          <li>
+            <h3>3) Plan &amp; Progress</h3>
+            <p>
+              Sessions focus on practical tools and measurable progress. You get exercises to apply between sessions.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Note (ethical / professional tone) -->
+    <section class="section">
+      <div class="wrap">
+        <h2>Important Note</h2>
+        <p>
+          This website provides general information and does not replace emergency services.
+          If you are experiencing a crisis or are in immediate danger, contact your local emergency number.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-flex">
+      <p>&copy; <span id="year"></span> Daniela Rondan | WDD 131</p>
+      <p><a href="references.html">References</a></p>
+      <p>Last Modified: <span id="lastModified"></span></p>
+    </div>
+  </footer>
+</body>
+</html>

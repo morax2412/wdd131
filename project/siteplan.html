@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Cristian Cantera Inafuku" />
-  <meta name="description" content="W05 Website Planning Document for the MindCare Psychology site project." />
+  <meta name="description" content="W05 Website Planning Document for the MindCare Psychology project website." />
 
   <title>Site Plan | MindCare Psychology</title>
 
@@ -23,11 +23,12 @@
 
   <header class="site-header">
     <div class="wrap">
-      <h1>W05 Website Planning Document</h1>
-      <p class="tag">Topic: Psychologist Professional Website</p>
+      <h1>Website Planning Document</h1>
+      <p class="tag">Project Topic: Professional Psychologist Website</p>
       <p class="max-text">
-        This document is the site plan (blueprint) for the final project website. It defines the name, purpose,
-        target scenarios, design system (colors + typography), and wireframes for mobile and desktop.
+        This site plan is the blueprint for the final WDD 131 project website.
+        It defines the site name, purpose, target audience scenarios, design system (colors + typography),
+        site structure, required JavaScript behaviors, and wireframes for mobile and desktop.
       </p>
     </div>
   </header>
@@ -46,14 +47,10 @@
         </div>
 
         <div>
-          <h3>Optional Domain Ideas</h3>
-          <ul class="list">
-            <li>mindcarepsychology.com</li>
-            <li>mindcarepsicologia.com</li>
-            <li>mindcareclinic.com</li>
-          </ul>
-          <p class="mt-sm">
-            Domain purchase is not required for this course, but these options match the brand.
+          <h3>Psychologist Name (Client)</h3>
+          <p><strong>Lic. Daniela Estefany Rondan Suazo</strong></p>
+          <p>
+            The site is designed to support a psychologist’s professional presence and help potential clients request appointments.
           </p>
         </div>
       </div>
@@ -62,36 +59,36 @@
     <section>
       <h2>2. Site Purpose</h2>
       <p>
-        The purpose of this website is to present a professional profile for a licensed psychologist, explain services,
-        build trust with visitors, and make it easy to contact or request an appointment. The site will include
-        service descriptions, pricing guidance (if appropriate), a short FAQ, and a contact form.
+        The purpose of this website is to present a professional profile for a psychologist, explain services,
+        build trust with visitors, and make it easy to request an appointment using a contact form.
+        The site will contain service descriptions, a professional bio, a simple contact process, and a references page.
       </p>
 
       <h3>Primary Goals</h3>
       <ul class="list">
-        <li>Explain who the psychologist is and what specialties they offer.</li>
-        <li>Help visitors decide if therapy is right for them.</li>
-        <li>Provide a simple way to contact and request an appointment.</li>
-        <li>Improve credibility with clear information, tone, and design.</li>
+        <li>Provide clear information about the psychologist and the services offered.</li>
+        <li>Build credibility through professional layout, tone, and organization.</li>
+        <li>Help users choose the right service by category.</li>
+        <li>Allow users to submit an appointment request via a valid HTML form.</li>
       </ul>
     </section>
 
     <section>
-      <h2>3. Scenarios</h2>
-      <p>Typical questions a visitor (target audience) may ask:</p>
+      <h2>3. Target Audience &amp; Scenarios</h2>
+      <p>Typical visitor questions:</p>
       <ul class="list">
-        <li>“Do you help with anxiety, stress, or relationship issues? What type of therapy do you provide?”</li>
-        <li>“How do I book a session and what are your available hours (online / in-person)?”</li>
-        <li>“How much does a session cost and how many sessions do people usually need?”</li>
-        <li>“Where is your office located and how can I contact you quickly?”</li>
+        <li>“Do you help with anxiety, stress, or relationship problems?”</li>
+        <li>“What services do you offer and how do sessions work?”</li>
+        <li>“How can I request an appointment?”</li>
+        <li>“Where are you located and do you offer online sessions?”</li>
       </ul>
     </section>
 
     <section>
       <h2>4. Color Scheme</h2>
       <p>
-        The color palette is designed to feel calm, trustworthy, and warm (healthcare + mental wellness aesthetic).
-        <strong>Primary</strong> is used in the header and headings, and <strong>Accent</strong> is used for badges and highlights in this document.
+        Calm and trustworthy healthcare palette.
+        <strong>Primary</strong> supports headers and CTAs, and <strong>Accent</strong> supports highlights.
       </p>
 
       <div class="colors">
@@ -107,7 +104,7 @@
           <div class="top bg-accent"></div>
           <div class="info">
             <p><strong>Accent:</strong> Warm Gold <code>#F4B860</code></p>
-            <p>Use: call-to-action accents, badges, small highlights, icons.</p>
+            <p>Use: call-to-action accents, badges, small highlights.</p>
           </div>
         </div>
       </div>
@@ -122,21 +119,41 @@
 
     <section>
       <h2>5. Typography</h2>
-      <p>
-        The site will use a clean, modern font pairing for readability and a professional feel.
-        This planning document already uses these fonts to demonstrate the typography choices.
-      </p>
       <ul class="list">
-        <li><strong>Headings:</strong> Poppins (600–700) — used for h1, h2, h3.</li>
-        <li><strong>Body text:</strong> Inter (400–600) — used for paragraphs and lists.</li>
+        <li><strong>Headings:</strong> Poppins (600–700)</li>
+        <li><strong>Body:</strong> Inter (400–600)</li>
       </ul>
     </section>
 
     <section>
-      <h2>6. Wireframes</h2>
-      <p>
-        Wireframes are simple layout diagrams showing content blocks for the Home page in mobile and desktop views.
-      </p>
+      <h2>6. Site Map (Pages &amp; Content Plan)</h2>
+      <ul class="list">
+        <li><strong>index.html (Home):</strong> hero introduction, services preview, about preview, CTA to contact.</li>
+        <li><strong>page2.html (Services):</strong> full services list + filter by category (JS dynamic rendering).</li>
+        <li><strong>page3.html (About):</strong> professional bio, approach, specialties, values.</li>
+        <li><strong>contact.html (Contact):</strong> valid HTML form + confirmation message.</li>
+        <li><strong>references.html:</strong> citations for images/fonts/resources (unstyled allowed).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. JavaScript Plan (W06 Requirements)</h2>
+      <p>This website will demonstrate the required JavaScript behaviors:</p>
+      <ul class="list">
+        <li><strong>More than one function:</strong> render services, filter services, update footer dates, handle form submission.</li>
+        <li><strong>DOM interaction:</strong> select elements and inject service cards and messages dynamically.</li>
+        <li><strong>Events:</strong> filter change event (Services page) and form submit event (Contact page).</li>
+        <li><strong>Conditional branching:</strong> validate form fields and filter category selection.</li>
+        <li><strong>Objects &amp; Arrays:</strong> psychologist profile object + services array of objects.</li>
+        <li><strong>Array methods:</strong> filter() and map() to generate HTML.</li>
+        <li><strong>Template literals:</strong> used for all dynamic output strings.</li>
+        <li><strong>localStorage:</strong> store user name/email on contact submit and remember filter selection on services page.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Wireframes</h2>
+      <p>Simple layout for Home page in mobile and desktop views.</p>
 
       <div class="wireframes">
         <div class="wf">
@@ -145,14 +162,12 @@
             <span class="pill">~375px</span>
           </div>
 
-          <div class="box"><strong>Header</strong>: Logo + Menu (hamburger)</div>
-          <div class="box"><strong>Hero</strong>: Short headline + 1–2 lines + CTA “Book / Contact”</div>
-          <div class="box"><strong>Services</strong>: 3 stacked cards (Anxiety, Stress, Couples, etc.)</div>
-          <div class="box"><strong>About</strong>: Photo + short bio + credentials</div>
-          <div class="box"><strong>Testimonials</strong>: 2–3 short quotes (optional)</div>
-          <div class="box"><strong>FAQ</strong>: Accordion style list (2–4 questions)</div>
-          <div class="box"><strong>Contact</strong>: Simple form + WhatsApp/Email + Location</div>
-          <div class="box"><strong>Footer</strong>: Nav links + “References” link</div>
+          <div class="box"><strong>Header</strong>: Brand + Nav</div>
+          <div class="box"><strong>Hero</strong>: Headline + CTA + hero image</div>
+          <div class="box"><strong>Services</strong>: Short list / preview cards</div>
+          <div class="box"><strong>About</strong>: Bio preview + profile image</div>
+          <div class="box"><strong>CTA</strong>: Link to contact page</div>
+          <div class="box"><strong>Footer</strong>: References + Last Modified</div>
         </div>
 
         <div class="wf">
@@ -161,36 +176,38 @@
             <span class="pill">~1024px+</span>
           </div>
 
-          <div class="box"><strong>Header</strong>: Logo left + Nav right (Home, Services, About, Contact)</div>
-          <div class="box"><strong>Hero (2 columns)</strong>: Text + CTA on left, image on right</div>
-          <div class="box"><strong>Services (3 columns)</strong>: 3 service cards in a row</div>
-          <div class="box"><strong>About (2 columns)</strong>: Photo left, bio + credentials right</div>
-          <div class="box"><strong>Social Proof</strong>: Testimonials row or stats</div>
-          <div class="box"><strong>FAQ + Contact (2 columns)</strong>: FAQ left, form right</div>
-          <div class="box"><strong>Footer</strong>: Multiple columns + “References” link</div>
+          <div class="box"><strong>Header</strong>: Brand left + Nav right</div>
+          <div class="box"><strong>Hero (2 columns)</strong>: Text/CTA left, image right</div>
+          <div class="box"><strong>Services (3 columns)</strong>: Preview cards</div>
+          <div class="box"><strong>About (2 columns)</strong>: Image + bio</div>
+          <div class="box"><strong>Footer</strong>: References + Last Modified</div>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>File Naming &amp; Structure</h2>
-      <p>This plan follows the course naming conventions and folder structure for the final project.</p>
+      <h2>9. File Naming &amp; Structure</h2>
       <ul class="list">
         <li><code>project/siteplan.html</code></li>
         <li><code>project/index.html</code></li>
-        <li><code>project/styles/site.css</code></li>
+        <li><code>project/page2.html</code> (Services)</li>
+        <li><code>project/page3.html</code> (About)</li>
+        <li><code>project/contact.html</code></li>
+        <li><code>project/references.html</code></li>
+        <li><code>project/styles/base.css</code></li>
+        <li><code>project/styles/large.css</code></li>
         <li><code>project/scripts/main.js</code></li>
-        <li><code>project/references.html</code> (linked in the footer)</li>
         <li><code>project/images/</code></li>
       </ul>
     </section>
 
     <section>
-      <h2>Notes for Development</h2>
+      <h2>10. Notes for Development</h2>
       <ul class="list">
-        <li>All pages will be responsive using CSS media queries (mobile-first).</li>
-        <li>Accessibility: semantic HTML, proper headings, sufficient contrast, labels for form inputs.</li>
-        <li>Performance: optimized images, minimal JS, and validated HTML/CSS.</li>
+        <li>Responsive design using mobile-first CSS and media queries.</li>
+        <li>Accessibility: semantic HTML, headings, labels, focus states, and contrast checks.</li>
+        <li>Performance: optimized images + lazy loading.</li>
+        <li>Validation: no HTML/CSS errors and no JS console errors.</li>
       </ul>
     </section>
   </main>
@@ -203,3 +220,4 @@
   </footer>
 </body>
 </html>
+
