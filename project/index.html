@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Cristian Cantera Inafuku" />
+  <meta name="description" content="Professional psychology services by Lic. Daniela Estefany Rondan Suazo. Anxiety therapy, couples counseling, and emotional support." />
+
+  <title>Daniela Rondan | Psychology Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/large.css" />
+  <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <h1>Lic. Daniela Estefany Rondan Suazo</h1>
+    <nav>
+      <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="page2.html">Services</a></li>
+        <li><a href="page3.html">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h2>Professional Psychological Support</h2>
+      <p>
+        Compassionate and evidence-based therapy focused on anxiety, stress management, 
+        and relationship growth.
+      </p>
+      <a href="#contact" class="btn-primary">Book a Session</a>
+    </div>
+
+    <div>
+      <img 
+        src="images/hero-therapy.jpg" 
+        alt="Modern therapy office interior" 
+        loading="lazy" 
+        width="500"
+        height="350"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="services wrap">
+  <h2>Services</h2>
+  <ul id="servicesList"></ul>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about wrap">
+  <h2>About Daniela</h2>
+  <div class="about-grid">
+    <img 
+      src="images/profile.jpg" 
+      alt="Professional portrait of psychologist Daniela Rondan"
+      loading="lazy"
+      width="350"
+      height="400"
+    />
+
+    <p>
+      Lic. Daniela Estefany Rondan Suazo is a dedicated psychologist focused on helping 
+      individuals and couples develop emotional resilience, clarity, and healthier 
+      interpersonal relationships through structured and evidence-based therapy.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact" class="contact wrap">
+  <h2>Contact & Appointment Request</h2>
+
+  <form id="contactForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+
+    <button type="submit" class="btn-primary">Send Request</button>
+  </form>
+
+  <p id="confirmation" class="confirmation"></p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="year"></span> Daniela Rondan</p>
+    <p>Last Modified: <span id="lastModified"></span></p>
+    <p><a href="references.html">References</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

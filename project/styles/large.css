@@ -1,27 +1,33 @@
-/* ===============================
-   large.css (Desktop)
-   =============================== */
 
-@media (min-width: 860px) {
+@media (min-width: 768px) {
 
-  /* Two-column metadata */
-  .meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+  nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
-  /* Color swatches side by side */
-  .colors {
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 2rem;
   }
 
-  /* Wireframes side by side */
-  .wireframes {
-    grid-template-columns: 1fr 1fr;
+  .hero img {
+    max-width: 450px;
   }
 
-  header h1 {
-    font-size: 2.4rem;
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 calc(33% - 1rem);
+  }
+
+  form {
+    max-width: 600px;
   }
 }
